@@ -1,8 +1,0 @@
-1.  cd C:/Users/baolong.mei/repository-name/XXXX
-2.  git add pillow.js
-    或者
-    git add .
-3.  git commit  -m "first commit"
-4.  git push -u origin master
-    强制上传
-    git push -f
