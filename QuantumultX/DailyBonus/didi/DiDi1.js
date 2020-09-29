@@ -12,7 +12,7 @@
 let name = 'DiDi每日签到';
 let $ = new Env(name);
 let CheckinURL = 'https://bosp-api.xiaojukeji.com/wechat/benefit/public/index?city_id=14'
-let source_id = ['2mcQ782NkJCvNn%2FbU3VBAQ%3D%3D', 'DRKV%252BEcE4Gqn%252BH1mKz2HQg%253D%253D']
+let source_id = ['2mcQ782NkJCvNn%2FbU3VBAQ%3D%3D', '']
 let today = new Date().getFullYear() + "-" + ("00" + Number(new Date().getMonth() + 1)).substr(-2) + "-" + ("00" + new Date().getDate()).substr(-2)
 Checkin();
 
@@ -28,7 +28,7 @@ function Checkin() {
     let didi = {
         url: CheckinURL,
         headers: {
-            "Didi-Ticket": 'XvRwzOpo2lFRdyFiqyCCTJZDPRY6zQb94WfTNOJOSjIkzjmKw0AQQNG7_LgQVV29Vjr53GEWeUnaYONI-O5Gcv55_I2pBL7oogjTCBNmIkxVVZhOWCsj9ZaKl-wuzExY1aFpmFVhFoKvb4QfAoRfInXLLY_Wi9sYXfgnUhVWYuNxe97_VkJfwumwLBU_rDOBtWpF1avuT5ePed3zdwAAAP__',
+            "Didi-Ticket": '',
         }
     }
     $.get(didi, function(error, response, data) {
