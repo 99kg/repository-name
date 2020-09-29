@@ -9,26 +9,32 @@
 7. 所有直接或间接使用、查看此脚本的人均应该仔细阅读此声明。本人保留随时更改或补充此声明的权利。一旦您使用或复制了此脚本，即视为您已接受此免责声明。
 */
 
-let name = 'DiDi每日签到';
+let name = 'DiDi每日签到1';
 let $ = new Env(name);
 let CheckinURL = 'https://bosp-api.xiaojukeji.com/wechat/benefit/public/index?city_id=14'
-let source_id = ['2mcQ782NkJCvNn%2FbU3VBAQ%3D%3D', '']
-let today = new Date().getFullYear() + "-" + ("00" + Number(new Date().getMonth() + 1)).substr(-2) + "-" + ("00" + new Date().getDate()).substr(-2)
-Checkin();
+let name1 = '账号一'
+let name2 = '账号二'
+let source_id1 = '2mcQ782NkJCvNn%2FbU3VBAQ%3D%3D'
+let source_id2 = '2mcQ782NkJCvNn%2FbU3VBAQ%3D%3D'
+let token_value1 = ''
+let token_value2 = ''
 
-function Checkin() {
+let today = new Date().getFullYear() + "-" + ("00" + Number(new Date().getMonth() + 1)).substr(-2) + "-" + ("00" + new Date().getDate()).substr(-2)
+await Checkin(name1, source_id1, token_value1);
+await Checkin(name2, source_id2, token_value2);
+
+async function Checkin(name, source_id, token_value) {
     let subTitle = ''
     let detail = ''
 
     // 邀请
-    let s_i = source_id[0]
-    console.log("DiDi aff : \n" + s_i)
-    CheckinURL += '&share_source_id=' + s_i + '&share_date=' + today
+    console.log("DiDi aff : \n" + source_id)
+    CheckinURL += '&share_source_id=' + source_id + '&share_date=' + today
 
     let didi = {
         url: CheckinURL,
         headers: {
-            "Didi-Ticket": '',
+            "Didi-Ticket": token_value,
         }
     }
     $.get(didi, function(error, response, data) {
@@ -36,11 +42,11 @@ function Checkin() {
             let result = isJSON(data)
             if (result && result.errno == 0) {
                 if(result.data.sign.sign) {
-                    subTitle += '签到成功！🚕'
+                    subTitle += name + '签到成功！🚕'
                     let todayearn = Number(result.data.sign.sign.subsidy_state.subsidy_amount + result.data.sign.sign.subsidy_state.extra_subsidy_amount)
                     detail += '签到获得 ' + todayearn + ' 福利金，'
                 } else {
-                    subTitle += '重复签到！🚖'
+                    subTitle += name + '重复签到！🚖'
                 }
                 let total = result.data.welfare.balance
                 detail += '账户共有 ' + total + ' 福利金，可抵扣 ' + total/100 + ' 元。'
@@ -48,23 +54,23 @@ function Checkin() {
                     detail += '\n' + message
                 }
                 console.log("DiDi source_id : \n" + result.data.share.source_id)
+                $.msg(subTitle, detail)
             } else if (result && result.errno == 101) {
-                subTitle += '签到失败‼️ 城市代码错误。'
+                subTitle += name + '签到失败‼️ 城市代码错误。'
                 detail += '请重新获取 Token。\n' + result.errmsg
+                $.msg(subTitle, detail)
             } else {
-                subTitle += '签到失败‼️ 详情请见日志。'
+                subTitle += name + '签到失败‼️ 详情请见日志。'
                 detail += data
                 console.log("DiDi failed response : \n" + data)
+                $.msg(subTitle, detail)
             }
         } catch (e) {
             $.logErr(e, response)
         } finally {
+            $.notify(subTitle, detail)
             sleep(data)
         }
-        $cmp.notify(subTitle, detail)
-        console.log(subTitle)
-        console.log('\n')
-        console.log(detail)
     })
 }
 
