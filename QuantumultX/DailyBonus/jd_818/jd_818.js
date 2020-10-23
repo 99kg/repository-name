@@ -47,6 +47,8 @@ const JD_API_HOST = 'https://rdcseason.m.jd.com/api/';
 const activeEndTime = '2020/11/13 01:00:00';
 const helpCode = [
   'c1df7440-e9f0-4ab1-8469-6cd35226e7d5',
+  'f7d11917-11c2-4974-a1da-5f2a9c9d97ee',
+  'c1df7440-e9f0-4ab1-8469-6cd35226e7d5',
   'f7d11917-11c2-4974-a1da-5f2a9c9d97ee'
 ]
 !(async () => {
@@ -535,9 +537,12 @@ function saveJbean(id) {
 }
 async function doHelp() {
   for (let item of helpCode) {
-    const helpRes = await toHelp(item);
+    const helpRes = await toHelp(item.trim());
     if (helpRes.data.status === 5) {
       console.log(`助力机会已耗尽，跳出助力`);
+      break;
+    } else if (helpRes.data.status === 2) {
+      console.log(`助力机会失效，跳出`);
       break;
     }
   }
@@ -602,7 +607,7 @@ function getHelp() {
         } else {
           data = JSON.parse(data);
           if (data.code === 200) {
-            console.log(`\n您的助力码shareId(互助码每天都是变化的)\n${data.data.shareId}\n`);
+            console.log(`\n您的助力码shareId(互助码每天都是变化的)\n\n"${data.data.shareId}",\n`);
             $.temp.push(data.data.shareId);
           }
         }

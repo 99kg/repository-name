@@ -379,7 +379,7 @@ async function doHelp() {
           break;
         } else if ($.helpResult.data.helpShareRes.state === '3') {
           console.log('该好友今日已满9人助力/20瓶营养液,明天再来为Ta助力吧\n')
-		  } else if ($.helpResult.data.helpShareRes.state === '4') {
+        } else if ($.helpResult.data.helpShareRes.state === '4') {
           console.log(`${$.helpResult.data.helpShareRes.promptText}\n`)
         } else {
           console.log(`助力其他情况：${JSON.stringify($.helpResult.data.helpShareRes)}`);
@@ -510,9 +510,9 @@ function requireConfig() {
         }
       })
       if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
-      } else {
-      cookiesArr.push($.getdata('CookieJD'));
-      cookiesArr.push($.getdata('CookieJD2'));
+    } else {
+      if ($.getdata('CookieJD')) cookiesArr.push($.getdata('CookieJD'));
+      if ($.getdata('CookieJD2')) cookiesArr.push($.getdata('CookieJD2'));
     }
     console.log(`共${cookiesArr.length}个京东账号\n`)
     if ($.isNode()) {
