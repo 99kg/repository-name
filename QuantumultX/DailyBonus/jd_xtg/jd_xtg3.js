@@ -2,7 +2,7 @@
  * @Author: lxk0301 
  * @Date: 2020-10-21 17:04:04 
  * @Last Modified by: lxk0301
- * @Last Modified time: 2020-11-01 00:35:04
+ * @Last Modified time: 2020-10-25 09:35:04
  */
 /**
  星推官脚本 https://raw.githubusercontent.com/lxk0301/scripts/master/jd_xtg.js
@@ -24,8 +24,8 @@
  // Surge
  京东星推官 = type=cron,cronexp=2 0 * * *,wake-system=1,timeout=320,script-path=https://raw.githubusercontent.com/lxk0301/scripts/master/jd_xtg.js
  */
-const $ = new Env('京东星推官');
-const activeEndTime = '2020/11/12 23:59:59';//活动结束时间
+const $ = new Env('星推官');
+const activeEndTime = '2020/11/13 00:00:00';//活动结束时间
 const notify = $.isNode() ? require('./sendNotify') : '';
 //Node.js用户请在jdCookie.js处填写京东ck;
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
@@ -38,11 +38,8 @@ if ($.isNode()) {
   })
   if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
 } else {
-  let cookiesData = $.getdata('CookiesJD') || "[]";
-  cookiesData = JSON.parse(cookiesData);
-  cookiesArr = cookiesData.map(item => item.cookie);
-  cookiesArr.push($.getdata('CookieJD2'));
   cookiesArr.push($.getdata('CookieJD'));
+  cookiesArr.push($.getdata('CookieJD2'));
 }
 const starID = [
   'bolangwutiaoren',
@@ -62,9 +59,6 @@ const starID = [
   'lgyangzishan',
   'laobansongweilong',
   'haiermaoxiaotong',
-  "skgwangyibo",
-  "kongtiaozhangjike",
-  "sanxingningjing",
 ];
 const shareID = [];
 const JD_API_HOST = 'https://urvsaggpt.m.jd.com/guardianstar';
@@ -79,27 +73,23 @@ const JD_API_HOST = 'https://urvsaggpt.m.jd.com/guardianstar';
       $.UserName = decodeURIComponent(cookie.match(/pt_pin=(.+?);/) && cookie.match(/pt_pin=(.+?);/)[1])
       $.index = i + 1;
       $.beanCount = 0;
-      $.jdNum = 0;
-      console.log(`\n===============开始【京东账号${$.index}】${$.UserName}==================\n`);
+      console.log(`\n开始【京东账号${$.index}】${$.UserName}\n`);
       console.log(`一共${starID.length}个${$.name}任务，耗时会很久，请提前知晓`)
-      const beforeTotal = await TotalBean();
-      $.beanCount = beforeTotal && beforeTotal['base'].jdNum;
+      await TotalBean();
       for (let index = 0; index < starID.length; index ++) {
         $.activeId = starID[index];
         $.j = index;
         await JD_XTG();
       }
-      console.log(`\n等待3秒后，再去领取奖励\n`)
+      console.log(`\n等待10秒后，再去领取奖励\n`)
       console.log(`做任务之前京豆总计:${$.beanCount}`)
-      await $.wait(3000);
+      await $.wait(10000);
       for (let index = 0; index < starID.length; index ++) {
         $.activeId = starID[index];
         $.j = index;
         await JD_XTG();
         await doSupport(shareID[index]);
       }
-      const afterTotal = await TotalBean();
-      $.jdNum = afterTotal['base'].jdNum;
       await showMsg();
     }
   }
@@ -112,19 +102,19 @@ const JD_API_HOST = 'https://urvsaggpt.m.jd.com/guardianstar';
     })
 async function showMsg() {
   console.log(`\n做任务之前京豆总计:${$.beanCount}`)
-  console.log(`做完任务后京豆总计:${$.jdNum}`);
-  console.log(`活动活动京豆数量:${$.jdNum - $.beanCount}`);
-  let nowTime = Date.now();
-  const zone = new Date().getTimezoneOffset();
-  if (zone === 0) {
-    nowTime += 28800000;//UTC-0时区加上8个小时
+  const tempData = await TotalBean();
+  let bean = 0;
+  if (tempData && tempData['base']) {
+    let jdNum = tempData['base'].jdNum;
+    console.log(`做完任务后京豆总计:${tempData['base'].jdNum}`)
+    bean = jdNum - $.beanCount;
   }
-  if (nowTime > new Date(activeEndTime).getTime()) {
+  if (Date.now() > new Date(activeEndTime).getTime()) {
     $.msg($.name, '活动已结束', `请删除或禁用此脚本\n如果帮助到您可以点下🌟STAR鼓励我一下,谢谢\n咱江湖再见\nhttps://github.com/lxk0301/scripts`, {"open-url": "https://github.com/lxk0301/scripts"});
     if ($.isNode()) await notify.sendNotify($.name + '活动已结束', `请删除此脚本\n如果帮助到您可以点下🌟STAR鼓励我一下,谢谢\n咱江湖再见\nhttps://github.com/lxk0301/scripts`)
   } else {
-    $.msg($.name, `账号${$.index} ${$.UserName}`, `任务已做完\n做任务之前京豆总计:${$.beanCount}\n做完任务后京豆总计:${$.jdNum}\n${($.jdNum - $.beanCount) > 0 ? `获得京豆：${$.jdNum - $.beanCount}京豆 🐶(仅供参考)\n` : ''}京豆先到先得\n活动地址点击弹窗跳转后即可查看\n注：如未获得京豆就是已被分完`, {"open-url": "https://prodev.m.jd.com/mall/active/3gSzKSnvrrhYushciUpzHcDnkYE3/index.html"})
-    if ($.isNode()) await notify.sendNotify(`${$.name}`, `账号${$.index} ${$.UserName}\n任务已做完\n做任务之前京豆总计:${$.beanCount}\n做完任务后京豆总计:${$.jdNum}\n${($.jdNum - $.beanCount) > 0 ? `获得京豆：${$.jdNum - $.beanCount}京豆 🐶(仅供参考)\n` : ''}京豆先到先得\n注：如未获得京豆就是已被分完\n活动地址：https://prodev.m.jd.com/mall/active/3gSzKSnvrrhYushciUpzHcDnkYE3/index.html`)
+    $.msg($.name, `账号${$.index} ${$.UserName}`, `任务已做完\n${bean ? `获得京豆：${bean}个京豆 🐶\n` : ''}京豆先到先得\n活动地址点击弹窗跳转后即可查看\n注：如未获得京豆就是已被分完`, {"open-url": "https://prodev.m.jd.com/mall/active/3gSzKSnvrrhYushciUpzHcDnkYE3/index.html"})
+    if ($.isNode()) await notify.sendNotify(`${$.name}`, `账号${$.index} ${$.UserName}\n任务已做完\n${bean ? `获得京豆：${bean}个京豆 🐶\n` : ''}京豆先到先得\n注：如未获得京豆就是已被分完\n活动地址：https://prodev.m.jd.com/mall/active/3gSzKSnvrrhYushciUpzHcDnkYE3/index.html`)
   }
 }
 async function JD_XTG() {
