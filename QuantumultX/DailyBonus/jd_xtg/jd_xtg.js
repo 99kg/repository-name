@@ -2,7 +2,7 @@
  * @Author: lxk0301 
  * @Date: 2020-10-21 17:04:04 
  * @Last Modified by: lxk0301
- * @Last Modified time: 2020-11-01 00:35:04
+ * @Last Modified time: 2020-11-02 00:35:04
  */
 /**
  星推官脚本 https://raw.githubusercontent.com/lxk0301/scripts/master/jd_xtg.js
@@ -289,7 +289,7 @@ function TotalBean() {
           if (data) {
             data = JSON.parse(data);
             if (data['retcode'] === 0) {
-              $.beanCount = data['base'].jdNum;
+              // $.beanCount = data['base'].jdNum;
             }
           } else {
             console.log(`京东服务器返回空数据`)
