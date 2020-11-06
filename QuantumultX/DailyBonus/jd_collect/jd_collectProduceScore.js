@@ -120,7 +120,18 @@ function taskPostUrl(functionId, body = {}) {
       'Host': 'api.m.jd.com',
       'Cookie': cookie,
       'Origin': 'https://wbbny.m.jd.com',
-      'Referer': 'https://wbbny.m.jd.com/babelDiy/Zeus/4SJUHwGdUQYgg94PFzjZZbGZRjDd/index.html',
+      'Referer': 'https://bunearth.m.jd.com/',
+      ':authority': 'api.m.jd.com',
+      ':method': 'POST',
+      ':path': '/client.action?functionId=stall_collectProduceScore',
+      ':scheme': 'https',
+      'accept': '*/*,
+      'accept-encoding': 'gzip, deflate, br',
+      'accept-language': 'zh-CN,zh;q=0.9,ja;q=0.8,en;q=0.7',
+      'content-length': '707',
+      'sec-fetch-dest': 'empty',
+      'sec-fetch-mode': 'cors',
+      'sec-fetch-site': 'same-site',
     }
   }
 }
