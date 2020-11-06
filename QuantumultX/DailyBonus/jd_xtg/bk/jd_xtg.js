@@ -38,10 +38,10 @@ if ($.isNode()) {
   })
   if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
 } else {
-  let cookiesData = $.getdata('CookiesJD2') || "[]";
+  let cookiesData = $.getdata('CookiesJD') || "[]";
   cookiesData = jsonParse(cookiesData);
   cookiesArr = cookiesData.map(item => item.cookie);
-  cookiesArr.push($.getdata('CookieJD2'));
+  cookiesArr.push($.getdata('CookieJD'));
 }
 const starID = [
   'bolangwutiaoren',
