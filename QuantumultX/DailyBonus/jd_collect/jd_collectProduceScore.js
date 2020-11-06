@@ -125,7 +125,7 @@ function taskPostUrl(functionId, body = {}) {
       ':method': 'POST',
       ':path': '/client.action?functionId=stall_collectProduceScore',
       ':scheme': 'https',
-      'accept': '*/*,
+      'accept': '*/*',
       'accept-encoding': 'gzip, deflate, br',
       'accept-language': 'zh-CN,zh;q=0.9,ja;q=0.8,en;q=0.7',
       'content-length': '707',
