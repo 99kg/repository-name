@@ -33,7 +33,7 @@ const JD_API_HOST = 'https://api.m.jd.com/client.action';
 //此此内容是IOS用户下载脚本到本地使用，填写互助码的地方，同一京东账号的好友互助码请使用@符号隔开。
 //下面给出两个账号的填写示例（iOS只支持2个京东账号）
 let shareCodes = [ // IOS本地脚本用户这个列表填入你要助力的好友的shareCode
-  //账号一的好友shareCode,不同好友的shareCode中间用@符号隔开
+                   //账号一的好友shareCode,不同好友的shareCode中间用@符号隔开
   '4npkonnsy7xi2di7zpoud365zf5ccqz5hf55rpq@olmijoxgmjutyggqlizttfjqd7yb6mw4yza6q3a',
   //账号二的好友shareCode,不同好友的shareCode中间用@符号隔开
   '4npkonnsy7xi2di7zpoud365zf5ccqz5hf55rpq@olmijoxgmjutyggqlizttfjqd7yb6mw4yza6q3a',
@@ -61,7 +61,7 @@ let randomCount = 20;
       if (!$.isLogin) {
         $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/`, {"open-url": "https://bean.m.jd.com/"});
         $.setdata('', `CookieJD${i ? i + 1 : "" }`);//cookie失效，故清空cookie。
-        if ($.isNode()) await notify.sendNotify(`${$.name}cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取cookie`);
+        if ($.isNode()) await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
         continue
       }
       message = '';
@@ -121,7 +121,7 @@ async function doGetReward() {
       message += `【上期兑换京豆】${$.getReward.data.awardBean}个\n`;
       $.msg($.name, subTitle, message);
       if ($.isNode()) {
-        await notify.sendNotify(`${$.name}`, `京东账号${$.index} ${$.nickName}\n${message}`);
+        await notify.sendNotify(`${$.name} - 账号${$.index} - ${$.nickName || $.UserName}`, `京东账号${$.index} ${$.nickName}\n${message}`);
       }
     }
   } else if (awardState === '6') {
@@ -531,7 +531,7 @@ function shareCodesFormat() {
     }
     // const readShareCodeRes = await readShareCode();
     // if (readShareCodeRes && readShareCodeRes.code === 200) {
-    //   newShareCodes = newShareCodes.concat(readShareCodeRes.data || []);
+    // newShareCodes = [...new Set([...newShareCodes, ...(readShareCodeRes.data || [])])];
     // }
     console.log(`第${$.index}个京东账号将要助力的好友${JSON.stringify(newShareCodes)}`)
     resolve();
@@ -553,8 +553,7 @@ function requireConfig() {
       })
       if (process.env.JD_DEBUG && process.env.JD_DEBUG === 'false') console.log = () => {};
     } else {
-      if ($.getdata('CookieJD')) cookiesArr.push($.getdata('CookieJD'));
-      if ($.getdata('CookieJD2')) cookiesArr.push($.getdata('CookieJD2'));
+      cookiesArr.push(...[$.getdata('CookieJD'), $.getdata('CookieJD2')]);
     }
     console.log(`共${cookiesArr.length}个京东账号\n`)
     if ($.isNode()) {
