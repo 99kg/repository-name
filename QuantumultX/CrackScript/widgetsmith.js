@@ -12,35 +12,36 @@ hostname = api.revenuecat.com,
 
 var obj = JSON.parse($response.body);
 obj = {
-	"request_date": "2020-11-17T05:22:47Z",
-	"request_date_ms": 1605590567936,
+	"request_date": "2020-11-17T06:53:21Z",
+	"request_date_ms": 1605596001040,
 	"subscriber": {
 		"entitlements": {
-			"pro": {
-				"expires_date": "2050-11-20T05:22:16Z",
-				
-				"product_identifier": "rc_monthly",
-				"purchase_date": "2020-11-17T05:22:16Z"
+			"Premium": {
+				"expires_date": "2088-12-17T06:52:31Z",
+				"grace_period_expires_date": null,
+				"product_identifier": "PremiumYearlyWidgetsmith",
+				"purchase_date": "2020-11-17T06:52:31Z"
 			}
 		},
-		"first_seen": "2020-11-17T05:12:16Z",
-		"last_seen": "2020-11-17T05:12:16Z",
-		"management_url": null,
+		"first_seen": "2020-11-17T05:54:28Z",
+		"last_seen": "2020-11-17T05:54:28Z",
+		"management_url": "itms-apps://apps.apple.com/account/subscriptions",
 		"non_subscriptions": {},
 		"original_app_user_id": "$RCAnonymousID:f3a0e4f4e4eb43e99328d72720b0a1ff",
 		"original_application_version": "56",
 		"original_purchase_date": "2020-11-16T14:58:05Z",
 		"other_purchases": {},
 		"subscriptions": {
-			"rc_monthly": {
+			"PremiumYearlyWidgetsmith": {
 				"billing_issues_detected_at": null,
-				"expires_date": "2050-11-20T05:22:16Z",
+				"expires_date": "2088-12-17T06:52:31Z",
+				"grace_period_expires_date": null,
 				"is_sandbox": false,
-				"original_purchase_date": "2020-11-17T05:22:17Z",
-				"period_type": "trial",
-				"purchase_date": "2020-11-17T05:22:16Z",
+				"original_purchase_date": "2020-11-17T06:52:33Z",
+				"period_type": "normal",
+				"purchase_date": "2020-11-17T06:52:31Z",
 				"store": "app_store",
-				"unsubscribe_detected_at": null
+				"unsubscribe_detected_at": "2020-11-17T06:53:20Z"
 			}
 		}
 	}
