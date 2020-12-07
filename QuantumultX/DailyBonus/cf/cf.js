@@ -17,9 +17,11 @@ function sign() {
     let detail = ``
     if (result.msg == "签到成功") {
       subTitle = `签到结果: 成功`
+      detail = result.data.exp
     }
     else {
       subTitle = `签到结果: 失败`
+      detail = result.msg
     }
     senku.msg(cookieName, subTitle, detail)
     senku.done()
