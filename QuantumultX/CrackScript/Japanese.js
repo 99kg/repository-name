@@ -2,7 +2,7 @@ var body = $response.body;
 var url = $request.url;
 var obj = JSON.parse(body);
 
-if (body.data[0].book_id == 10001) {
+if (obj.data[0].book_id == 10001) {
 	obj = {
 		"data": [{
 			"book_title": "标准日本语初级",
@@ -27,5 +27,4 @@ if (body.data[0].book_id == 10001) {
 		"message": "获取图书列表成功"
 	};
 }
-
 $done({body: JSON.stringify(obj)});
