@@ -1,2 +1,6 @@
 # Update > 2020.12.18
 DOMAIN-SUFFIX, trafficjunky.com, reject
+DOMAIN-SUFFIX, sf3-ttcdn-tos.pstatp.com, reject
+DOMAIN-SUFFIX, api-access.pangolin-sdk-toutiao.com, reject
+DOMAIN-SUFFIX, goblin.hupu.com, reject
+DOMAIN-SUFFIX, w1.hoopchina.com.cn, reject
