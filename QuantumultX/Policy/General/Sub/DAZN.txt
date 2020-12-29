@@ -1,0 +1,6 @@
+# > DAZN
+user-agent, DAZN*, Global
+host-suffix, dazn.com, Global
+host-suffix, dazn-api.com, Global
+host, d151l6v8er5bdm.cloudfront.net, Global
+host-keyword, voddazn, Global

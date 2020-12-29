@@ -1,0 +1,3 @@
+# > Pandora
+user-agent, Pandora*, Global
+host-suffix, pandora.com, Global

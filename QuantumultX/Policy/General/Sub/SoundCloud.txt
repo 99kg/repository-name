@@ -1,0 +1,5 @@
+# > SoundCloud
+user-agent, SoundCloud*, Global
+host-suffix, p-cdn.us, Global
+host-suffix, sndcdn.com, Global
+host-suffix, soundcloud.com, Global

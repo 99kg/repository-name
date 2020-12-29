@@ -1,0 +1,6 @@
+# > KKTV
+user-agent, KKTV*, Global
+user-agent, com.kktv.ios.kktv*, Global
+host-suffix, kktv.com.tw, Global
+host-suffix, kktv.me, Global
+host, kktv-theater.kk.stream, Global

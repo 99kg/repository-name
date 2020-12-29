@@ -1,0 +1,10 @@
+# > AbemaTV
+user-agent, AbemaTV*, Global
+host-suffix, abema.io, Global
+host-suffix, abema.tv, Global
+host-suffix, ameba.jp, Global
+host-suffix, hayabusa.io, Global
+host, abematv.akamaized.net, Global
+host, ds-linear-abematv.akamaized.net, Global
+host, ds-vod-abematv.akamaized.net, Global
+host, linear-abematv.akamaized.net, Global

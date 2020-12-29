@@ -1,0 +1,9 @@
+# > Apple News and Apple Map TOMTOM Version
+host, gspe1-ssl.ls.apple.com, Global
+user-agent, AppleNews*, Global
+user-agent, com.apple.news*, Global
+host-suffix, apple.news, Global
+host, news-client.apple.com, Global
+host, news-edge.apple.com, Global
+host, news-events.apple.com, Global
+host, apple.comscoreresearch.com, Global

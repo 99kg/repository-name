@@ -1,0 +1,15 @@
+# > HBO GO HKG
+user-agent, HBO%20GO%20PROD%20HKG*, Global
+host-suffix, hbogoasia.com, Global
+host-suffix, hbogoasia.hk, Global
+host, bcbolthboa-a.akamaihd.net, Global
+host, players.brightcove.net, Global
+host, s3-ap-southeast-1.amazonaws.com, Global
+host, dai3fd1oh325y.cloudfront.net, Global
+host, 44wilhpljf.execute-api.ap-southeast-1.amazonaws.com, Global
+host, hboasia1-i.akamaihd.net, Global
+host, hboasia2-i.akamaihd.net, Global
+host, hboasia3-i.akamaihd.net, Global
+host, hboasia4-i.akamaihd.net, Global
+host, hboasia5-i.akamaihd.net, Global
+host, cf-images.ap-southeast-1.prod.boltdns.net, Global

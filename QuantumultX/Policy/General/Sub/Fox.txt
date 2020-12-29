@@ -1,0 +1,6 @@
+# > Fox+
+user-agent, FOX%20NOW*, Global
+host-suffix, fox.com, Global
+host-suffix, foxdcg.com, Global
+host-suffix, theplatform.com, Global
+host-suffix, uplynk.com, Global

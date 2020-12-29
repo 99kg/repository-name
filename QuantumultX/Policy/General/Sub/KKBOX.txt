@@ -1,0 +1,4 @@
+# > KKBOX
+host-suffix, kkbox.com, Global
+host-suffix, kkbox.com.tw, Global
+host-suffix, kfs.io, Global

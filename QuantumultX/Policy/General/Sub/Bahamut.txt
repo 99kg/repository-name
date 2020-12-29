@@ -1,0 +1,6 @@
+# > Bahamut
+user-agent, Anime*, Global
+host-suffix, bahamut.com.tw, Global
+host-suffix, gamer.com.tw, Global
+host, gamer-cds.cdn.hinet.net, Global
+host, gamer2-cds.cdn.hinet.net, Global
