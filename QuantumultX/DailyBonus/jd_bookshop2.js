@@ -53,7 +53,7 @@ if ($.isNode()) {
     return;
   }
   $.shareCodesArr = []
-  // await requireConfig()
+  await requireConfig()
   for (let i = 0; i < cookiesArr.length; i++) {
     if (cookiesArr[i]) {
       cookie = cookiesArr[i];
@@ -688,15 +688,15 @@ function requireConfig() {
     //Node.js用户请在jdCookie.js处填写京东ck;
     const shareCodes = []
     console.log(`共${cookiesArr.length}个京东账号\n`);
-    $.shareCodesArr = [];
-    if ($.isNode()) {
-      Object.keys(shareCodes).forEach((item) => {
-        if (shareCodes[item]) {
-          $.shareCodesArr.push(shareCodes[item])
-        }
-      })
-    }
-    console.log(`您提供了${$.shareCodesArr.length}个账号的${$.name}助力码\n`);
+    //$.shareCodesArr = [];
+    //if ($.isNode()) {
+    //  Object.keys(shareCodes).forEach((item) => {
+    //    if (shareCodes[item]) {
+    //      $.shareCodesArr.push(shareCodes[item])
+    //    }
+    //  })
+    //}
+    //console.log(`您提供了${$.shareCodesArr.length}个账号的${$.name}助力码\n`);
     resolve()
   })
 }
