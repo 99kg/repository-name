@@ -25,6 +25,9 @@ const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 //IOS等用户直接用NobyDa的jd cookie
 let cookiesArr = [], cookie = '', message;
 const ACT_ID = 'dz2010100034444201', shareUuid = '93818ea832bd41cd83cd16fc9c2b275f'
+let ADD_CART = false
+ADD_CART = $.isNode() ? (process.env.PURCHASE_SHOPS ? process.env.PURCHASE_SHOPS : ADD_CART) : ($.getdata("ADD_CART") ? $.getdata("ADD_CART") : ADD_CART);
+// 加入购物车开关，与东东小窝共享
 
 let inviteCodes = [
   '93818ea832bd41cd83cd16fc9c2b275f@ec9ab77f2f1948a79964f5a1aec2b8c3',
@@ -108,7 +111,7 @@ async function jdBeauty() {
     }
   }
   if($.userInfo.storeGold) await chargeGold()
-  await helpFriends()
+  // await helpFriends()
   await showMsg();
 }
 
@@ -300,7 +303,7 @@ function getActContent(info = false, shareUuid = '') {
               if (!info) {
                 const tasks = data.data.settingVo
                 for (let task of tasks) {
-                  if (['关注店铺', '加购商品'].includes(task.title)) {
+                  if (['关注店铺'].includes(task.title)) {
                     if (task.okNum < task.dayMaxNum) {
                       console.log(`去做${task.title}任务`)
                       await doTask(task.settings[0].type, task.settings[0].value)
@@ -322,6 +325,11 @@ function getActContent(info = false, shareUuid = '') {
                         if (res.result) break
                         await $.wait(500)
                       }
+                    }
+                  } else if (ADD_CART && ['加购商品'].includes(task.title)) {
+                    if (task.okNum < task.dayMaxNum) {
+                      console.log(`去做${task.title}任务`)
+                      await doTask(task.settings[0].type, task.settings[0].value)
                     }
                   }
                 }
@@ -690,6 +698,14 @@ function requireConfig() {
     console.log(`共${cookiesArr.length}个京东账号\n`);
     //$.shareCodesArr = [];
     //if ($.isNode()) {
+    //  //自定义助力码
+    //  if (process.env.BOOKSHOP_SHARECODES) {
+    //    if (process.env.BOOKSHOP_SHARECODES.indexOf('\n') > -1) {
+    //      shareCodes = process.env.BOOKSHOP_SHARECODES.split('\n');
+    //    } else {
+    //      shareCodes = process.env.BOOKSHOP_SHARECODES.split('&');
+    //    }
+    //  }
     //  Object.keys(shareCodes).forEach((item) => {
     //    if (shareCodes[item]) {
     //      $.shareCodesArr.push(shareCodes[item])
