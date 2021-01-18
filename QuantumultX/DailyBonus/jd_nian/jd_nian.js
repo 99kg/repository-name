@@ -615,7 +615,7 @@ function doShopLottery(shopSign) {
               if(result.awardType===4)
                 console.log(`抽奖成功，获得${result.score}爆竹🧨`)
               else if(result.awardType===2 || result.awardType===3)
-                console.log(`抽奖成功，获得优惠卷`)
+                console.log(`抽奖成功，获得优惠券`)
               else
                 console.log(`抽奖成功，获得${JSON.stringify(result)}`)
             }else{
