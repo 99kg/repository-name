@@ -50,8 +50,8 @@ const inviteCodes = [
   `cgxZdTXtI-jZvArPCAaovQMvDaJ8tolBwYjV_cDT4g46ESWi5XOAH35S7p4@cgxZdTXtIu6JvFzAXFb_6Th_j6Mk1tsxvOqWNYsZTYNVjdd5T0N1QepM3Po`
 ];
 const pkInviteCodes = [
-  'IgNWdiLGaPadvlqJQnnKp27-YpAvKvSYNTSkTGvZylf_0wcvqD9EMkohEdw@IgNWdiLGaPaZskfACQyhgLSpZWps-WtQEW3McifW@IgNWdiLGaPYCeJUfsq18UNi5ln9xEZSPRdOue8Wl3hJTS2SQzU0vulL0fHeULJaIfgqHFd7f_Kg',
-  'IgNWdiLGaPadvlqJQnnKp27-YpAvKvSYNTSkTGvZylf_0wcvqD9EMkohEdw@IgNWdiLGaPaAvmHPAQf769XqjJjMyRirPzN9-AS-WHY9Y_G7t9Cwe5gdiI2qEvHa'
+  '',
+  ''
 ]
 !(async () => {
   await requireConfig();
@@ -100,7 +100,7 @@ async function jdNian() {
       $.hasGroup = false
       await pkTaskDetail()
       if ($.hasGroup) await pkInfo()
-      await helpFriendsPK()
+      // await helpFriendsPK()
     }
     if (12 <= hour && hour < 14) {
       // 北京时间20点-22点
