@@ -14,7 +14,7 @@
 ============Quantumultx===============
 [task_local]
 #京东超级盒子
-20 7 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_super_box.js, tag=京东超级盒子, enabled=true
+20 7 * * * https://gitee.com/lxk0301/jd_scripts/raw/master/jd_super_box.js, tag=京东超级盒子, img-url=https://raw.githubusercontent.com/Orz-3/task/master/jd.png, enabled=true
 
 ================Loon==============
 [Script]
@@ -79,8 +79,6 @@ const JD_API_HOST = 'https://api.m.jd.com/';
 
         if ($.isNode()) {
           await notify.sendNotify(`${$.name}cookie已失效 - ${$.UserName}`, `京东账号${$.index} ${$.UserName}\n请重新登录获取cookie`);
-        } else {
-          $.setdata('', `CookieJD${i ? i + 1 : ""}`);//cookie失效，故清空cookie。$.setdata('', `CookieJD${i ? i + 1 : "" }`);//cookie失效，故清空cookie。
         }
         continue
       }
@@ -181,8 +179,10 @@ function getTaskDetail(taskId,taskType) {
           if (safeGet(data)) {
             data = JSON.parse(data);
             if (data.success) {
+              $.canDone = true
               for(let vo of data.data.taskItemList){
                 await doTask(taskId,taskType,vo.itemId)
+                if(!$.canDone) break
                 await $.wait(1000)
               }
             } else {
@@ -220,6 +220,7 @@ function doTask(taskId,taskType,itemId) {
             if (data.success) {
               console.log(`任务完成成功`)
             } else {
+              $.canDone = false
               console.log(`任务完成失败`)
             }
           }
@@ -282,8 +283,12 @@ function draw() {
             data = JSON.parse(data);
             if (data.success) {
               if(data.data.discount) {
-                $.earn += parseFloat(data.data.discount)
-                console.log(`获得${data.data.discount}红包`)
+                if(data.data.rewardType===2) {
+                  $.earn += parseFloat(data.data.discount)
+                  console.log(`获得${data.data.discount}红包`)
+                }else{
+                  console.log(`获得优惠券`)
+                }
               }
               else
                 console.log(`获得空气`)
