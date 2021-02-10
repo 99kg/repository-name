@@ -50,8 +50,8 @@ if ($.isNode()) {
 
 const JD_API_HOST = 'https://api.m.jd.com/', actCode = 'visa-card-001';
 const inviteCodes = [
-  '',
-  '',
+  'MC8yRFRaNmorTk9kL3c0Q0tSWlVTbnFFVUlsRW02NDlvNktEaTVQd2RoST0=@dktLRWJnOEJpMWRNbmlCdlByRnJGdHRyaXR3TjdkYytUSThhdVlXazM2WT0=',
+  'dktLRWJnOEJpMWRNbmlCdlByRnJGdHRyaXR3TjdkYytUSThhdVlXazM2WT0=@MC8yRFRaNmorTk9kL3c0Q0tSWlVTbnFFVUlsRW02NDlvNktEaTVQd2RoST0=',
 ];
 $.invites = [];
 !(async () => {
