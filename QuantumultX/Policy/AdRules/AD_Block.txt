@@ -1471,7 +1471,6 @@ DOMAIN-SUFFIX,appgift.sinaapp.com,REJECT
 DOMAIN-SUFFIX,appjiagu.com,REJECT
 DOMAIN-SUFFIX,applifier.com,REJECT
 DOMAIN-SUFFIX,applog.uc.cn,REJECT
-DOMAIN-SUFFIX,app-monitor.ele.me,REJECT
 DOMAIN-SUFFIX,appnext.com,REJECT
 DOMAIN-SUFFIX,appodealx.com,REJECT
 DOMAIN-SUFFIX,apppic.yingyongbei.com,REJECT
