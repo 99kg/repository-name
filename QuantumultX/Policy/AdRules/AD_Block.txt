@@ -6346,7 +6346,6 @@ DOMAIN-SUFFIX,sdk.open.phone.igexin.com,REJECT
 DOMAIN-SUFFIX,sdk.open.talk.gepush.com,REJECT
 DOMAIN-SUFFIX,sdk.open.talk.igexin.com,REJECT
 DOMAIN-SUFFIX,sdkapp.mobile.sina.cn,REJECT
-DOMAIN-SUFFIX,sdkapp.uve.weibo.com,REJECT
 DOMAIN-SUFFIX,sdkclick.mobile.sina.cn,REJECT
 DOMAIN-SUFFIX,sdkconfig.ad.intl.xiaomi.com,REJECT
 DOMAIN-SUFFIX,sdkdm.com,REJECT
