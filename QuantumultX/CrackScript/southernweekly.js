@@ -1,21 +1,28 @@
-function re() {
-    var body = $response.body;
-    if (arguments[0].includes("@")) {
-        var regs = arguments[0].split("@");
-        var strs = arguments[1].split("@");
-        for (i = 0; i < regs.length; i++) {
-            var reg = new RegExp(regs[i], "g");
-            body = body.replace(reg, strs[i]);
-        }
-    } else {
-        var reg = new RegExp(arguments[0], "g");
-        body = body.replace(reg, arguments[1]);
-    }
-    $done(body);
+var body = $response.body;
+var url = $request.url;
+var obj = JSON.parse(body);
+const path1 = '/mobile/user';
+const path2 = '/mobile/courses';
+
+if (url.indexOf(path1) != -1) {
+	obj.data["member_type"] = 5;
+	obj.data["expire_time"] = "2088-08-08";
 }
 
-re('"member_type":\\d', '"member_type":5')
-re('"expire_time":\\w+', '"expire_time":"2030-05-05"')
-re('"user":\\{[^\\}]+\\}', '"user":{\"islogin\":true,\"isview\":true,\"isNewsStand\":2,\"member_type\":5,\"expire_time\":\"2030-05-05\",\"isdigg\":true,\"isfav\":true}')
-re('"is_free":\\d', '"is_free":1')
-re('"isbuy":\\w+', '"isbuy":"true"')
+if (url.indexOf(path2) != -1) {
+	obj.data.user["member_type"] = 5;
+	obj.data.user["expire_time"] = "2088-08-08";
+	obj.data.course["isbuy"] = true;
+	obj.data.course["is_free"] = 1;
+	obj.data.course["price"] = 0;
+	obj.data.course.course_item["is_free"] = 1;
+	for(var num = 0; num < obj.data.course.course_sections.length; num++ ){
+		obj.data.course.course_sections[num].is_free = 1;
+	}
+	for(var num = 0; num < obj.data.course.course_items.length; num++ ){
+		obj.data.course.course_items[num].is_free = 1;
+	}
+}
+
+body = JSON.stringify(obj);
+$done(body);
