@@ -7923,7 +7923,7 @@ DOMAIN-SUFFIX,zuimeitianqi.inveno.com,REJECT
 DOMAIN-SUFFIX,zws.avvo.com,REJECT
 DOMAIN-SUFFIX,img.adnyg.com.w.kunlungr.com,REJECT
 DOMAIN-SUFFIX,log.tagtic.cn,REJECT
-#DOMAIN-SUFFIX,ulogs.umeng.com,REJECT
+DOMAIN-SUFFIX,ulogs.umeng.com,REJECT
 DOMAIN-SUFFIX,zx.baosmx.com,REJECT
 DOMAIN-SUFFIX,zxcs.ggwan.com,REJECT
 DOMAIN-SUFFIX,zxcs.linghit.com,REJECT
@@ -8219,7 +8219,7 @@ DOMAIN-SUFFIX,alog.umengcloud.com,REJECT
 DOMAIN-SUFFIX,alogs.umengcloud.com,REJECT
 DOMAIN-SUFFIX,ar.umeng.com,REJECT
 DOMAIN-SUFFIX,plbslog.umeng.com,REJECT
-# DOMAIN-SUFFIX,ulogs.umengcloud.com,REJECT
+DOMAIN-SUFFIX,ulogs.umengcloud.com,REJECT
 DOMAIN-SUFFIX,a.wkanx.com,REJECT
 DOMAIN-SUFFIX,cwx.lianwangtech.com,REJECT
 DOMAIN-SUFFIX,c1wx.lianwangtech.com,REJECT
