@@ -7,6 +7,8 @@ const path2 = '/mobile/courses';
 if (url.indexOf(path1) != -1) {
 	obj.data["member_type"] = 5;
 	obj.data["expire_time"] = "2088-08-08";
+	obj.data["coin"] = 9999;
+	obj.data.pumpkin["pumpkin_point"] = 999999
 }
 
 if (url.indexOf(path2) != -1) {
