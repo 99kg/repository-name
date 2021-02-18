@@ -1034,7 +1034,6 @@ DOMAIN-SUFFIX,adimg.deviantart.net,REJECT
 DOMAIN-SUFFIX,adimg.mobile.sina.cn,REJECT
 DOMAIN-SUFFIX,adimg.qxlsjw.com,REJECT
 DOMAIN-SUFFIX,adimg.uimserv.net,REJECT
-DOMAIN-SUFFIX,adimg.uve.weibo.com,REJECT
 DOMAIN-SUFFIX,adimg1.chosun.com,REJECT
 DOMAIN-SUFFIX,adimg3.search.naver.net,REJECT
 DOMAIN-SUFFIX,adimgs.xici.net,REJECT
@@ -6346,6 +6345,7 @@ DOMAIN-SUFFIX,sdk.open.phone.igexin.com,REJECT
 DOMAIN-SUFFIX,sdk.open.talk.gepush.com,REJECT
 DOMAIN-SUFFIX,sdk.open.talk.igexin.com,REJECT
 DOMAIN-SUFFIX,sdkapp.mobile.sina.cn,REJECT
+DOMAIN-SUFFIX,sdkapp.uve.weibo.com,REJECT
 DOMAIN-SUFFIX,sdkclick.mobile.sina.cn,REJECT
 DOMAIN-SUFFIX,sdkconfig.ad.intl.xiaomi.com,REJECT
 DOMAIN-SUFFIX,sdkdm.com,REJECT
@@ -7923,7 +7923,7 @@ DOMAIN-SUFFIX,zuimeitianqi.inveno.com,REJECT
 DOMAIN-SUFFIX,zws.avvo.com,REJECT
 DOMAIN-SUFFIX,img.adnyg.com.w.kunlungr.com,REJECT
 DOMAIN-SUFFIX,log.tagtic.cn,REJECT
-DOMAIN-SUFFIX,ulogs.umeng.com,REJECT
+#DOMAIN-SUFFIX,ulogs.umeng.com,REJECT
 DOMAIN-SUFFIX,zx.baosmx.com,REJECT
 DOMAIN-SUFFIX,zxcs.ggwan.com,REJECT
 DOMAIN-SUFFIX,zxcs.linghit.com,REJECT
@@ -8219,7 +8219,7 @@ DOMAIN-SUFFIX,alog.umengcloud.com,REJECT
 DOMAIN-SUFFIX,alogs.umengcloud.com,REJECT
 DOMAIN-SUFFIX,ar.umeng.com,REJECT
 DOMAIN-SUFFIX,plbslog.umeng.com,REJECT
-DOMAIN-SUFFIX,ulogs.umengcloud.com,REJECT
+# DOMAIN-SUFFIX,ulogs.umengcloud.com,REJECT
 DOMAIN-SUFFIX,a.wkanx.com,REJECT
 DOMAIN-SUFFIX,cwx.lianwangtech.com,REJECT
 DOMAIN-SUFFIX,c1wx.lianwangtech.com,REJECT
