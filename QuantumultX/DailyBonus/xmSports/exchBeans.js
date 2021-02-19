@@ -17,6 +17,8 @@ function Checkin() {
     var date = new Date()
     const url = `https://api.m.jd.com/api?functionId=swat_game_exchangejingbean&fromType=wxapp&timestamp=${date.getTime()}`;
     const method = `POST`;
+    console.log(666)
+    console.log($nobyda.read("CookieWX"))
     const headers = {
         'Cookie' : $nobyda.read("CookieWX"),
         'content-type' : `application/x-www-form-urlencoded`,
@@ -50,18 +52,15 @@ function Checkin() {
 }
 
 function GetCookie() {
-    var CK = $request.url.match(/sid=.+/)
-    console.log(123)
-    console.log($request.headers['Cookie'])
-    console.log(456)
-    console.log($request.url.match(/sid=.+/))
+    var CK = $request.headers['Cookie']
     var EXBEAN = CK || null
     var RA = $nobyda.read("CookieWX")
     if (EXBEAN) {
+        console.log(123)
+        console.log(CK)
+        console.log(EXBEAN[0])
+        console.log(EXBEAN[1])
         if (RA != EXBEAN[1]) {
-            console.log(789)
-            console.log(EXBEAN[0])
-            console.log(EXBEAN[1])
             $nobyda.write(EXBEAN[1], "CookieWX")
             $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
         }
