@@ -26,13 +26,17 @@ function Checkin() {
 
     $nobyda.post(myRequest, function(error, response, data) {
         if (!error) {
+            var msg = data.msg
+            console.log(msg)
+            var code = data.code
+            console.log(code)
             if (data.code == 0) {
-                $nobyda.notify("微信运动兑换京豆成功！🎉", data.msg, "")
+                $nobyda.notify(`微信运动兑换京豆成功🎉`, "", "")
             } else {
-                $nobyda.notify("微信运动兑换京豆失败！🎉", data.msg, "")
+                $nobyda.notify(`微信运动兑换京豆失败!${msg}`, "", "")
             }
         } else {
-            $nobyda.notify("微信运动兑换京豆接口请求失败！", "", error)
+            $nobyda.notify("微信运动兑换京豆接口请求失败!", "", error)
         }
         $nobyda.end()
     });
