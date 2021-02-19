@@ -50,13 +50,12 @@ function Checkin() {
 }
 
 function GetCookie() {
-    var CKA = $request.url.match(/sid=.+;/)
-    var CKB = JSON.stringify($request.headers).match(/sid=.+;/)
-    var EXBEAN = CKA || CKB || null
+    var CK = $request.headers['Cookie']
+    var EXBEAN = CKA || null
     var RA = $nobyda.read("CookieWX")
     if (EXBEAN) {
-        if (RA != EXBEAN[2]) {
-            $nobyda.write(EXBEAN[2], "CookieWX")
+        if (RA != EXBEAN[1]) {
+            $nobyda.write(EXBEAN[1], "CookieWX")
             $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
         }
     } else {
