@@ -51,6 +51,10 @@ function Checkin() {
 
 function GetCookie() {
     var CK = $request.headers['Cookie']
+    console.log(123)
+    console.log($request.headers['Cookie'])
+    console.log(456)
+    console.log($request.url.match(/sid=.+/))
     var EXBEAN = CK || null
     var RA = $nobyda.read("CookieWX")
     if (EXBEAN) {
