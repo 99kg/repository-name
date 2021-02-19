@@ -1,12 +1,9 @@
 var $nobyda = nobyda();
-var cookie = $nobyda.read("CookieWX")
 
 if ($nobyda.isRequest) {
     GetCookie()
-} else if (cookie) {
-    await Checkin();
 } else {
-    $nobyda.notify("", "", "签到终止, 未获取Cookie");
+    await Checkin();
 }
 
 function Checkin() {
@@ -14,9 +11,9 @@ function Checkin() {
     const url = `https://api.m.jd.com/api?functionId=swat_game_exchangejingbean&fromType=wxapp&timestamp=${date.getTime()}`;
     const method = `POST`;
     console.log("cookie")
-    console.log(cookie)
+    console.log($nobyda.read("CookieWX"))
     const headers = {
-        'Cookie' : cookie,
+        'Cookie' : $nobyda.read("CookieWX"),
         'content-type' : `application/x-www-form-urlencoded`,
         'Connection' : `keep-alive`,
         'Accept-Encoding' : `gzip,compress,br,deflate`,
