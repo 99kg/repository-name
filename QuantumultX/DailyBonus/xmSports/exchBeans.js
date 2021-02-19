@@ -18,7 +18,7 @@ function Checkin() {
     const url = `https://api.m.jd.com/api?functionId=swat_game_exchangejingbean&fromType=wxapp&timestamp=${date.getTime()}`;
     const method = `POST`;
     const headers = {
-        'Cookie' : cookie,
+        'Cookie' : $nobyda.read("CookieWX"),
         'content-type' : `application/x-www-form-urlencoded`,
         'Connection' : `keep-alive`,
         'Accept-Encoding' : `gzip,compress,br,deflate`,
