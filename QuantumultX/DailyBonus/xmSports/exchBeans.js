@@ -1,10 +1,17 @@
 var $nobyda = nobyda();
 
-if ($nobyda.isRequest) {
-    GetCookie()
-} else {
-    await Checkin();
-}
+(async () => {
+    cookie = $nobyda.read("CookieWX")
+    if ($nobyda.isRequest) {
+        GetCookie()
+    } else if (cookie) {
+        await Checkin();
+    } else {
+        $nobyda.notify("", "", "签到终止, 未获取Cookie");
+    }
+})().finally(() => {
+    $nobyda.done();
+})
 
 function Checkin() {
     var date = new Date()
@@ -47,13 +54,13 @@ function Checkin() {
 function GetCookie() {
     var CK = $request.headers['Cookie']
     var RA = $nobyda.read("CookieWX")
-    if (RA != CK) {
+    //if (RA != CK) {
         $nobyda.write(CK, "CookieWX")
         $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
         $nobyda.notify(CK, "", "")
-    } else {
-        console.log("\n跳过写入Cookie")
-    }
+    //} else {
+    //    console.log("\n跳过写入Cookie")
+    //}
 }
 
 function nobyda() {
