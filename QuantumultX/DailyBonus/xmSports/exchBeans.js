@@ -50,8 +50,8 @@ function Checkin() {
 }
 
 function GetCookie() {
-    var CKA = $request.url.match(/sid=.+?;/)
-    var CKB = JSON.stringify($request.headers).match(/sid=.+?;/)
+    var CKA = $request.url.match(/sid=.+;/)
+    var CKB = JSON.stringify($request.headers).match(/sid=.+;/)
     var EXBEAN = CKA || CKB || null
     var RA = $nobyda.read("CookieWX")
     if (EXBEAN) {
