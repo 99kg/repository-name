@@ -53,7 +53,8 @@ function GetCookie() {
   var RA = $nobyda.read("CookieWX")
   if (EXBEAN) {
     if (RA != EXBEAN[2]) {
-        $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
+      $nobyda.write(EXBEAN[2], "CookieWX")
+      $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
     }
   } else {
     console.log("\n请求不含Cookie, 跳过写入 ‼️")
