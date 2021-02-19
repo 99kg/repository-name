@@ -15,29 +15,31 @@ var $nobyda = nobyda();
 
 function Checkin() {
     var date = new Date()
-    const url = `https://api.m.jd.com/api?functionId=swat_game_exchangejingbean&fromType=wxapp&timestamp=${date.getTime()}`;
-    const method = `POST`;
-    console.log("cookie")
-    console.log($nobyda.read("CookieWX"))
-    const headers = {
-        'Cookie' : $nobyda.read("CookieWX"),
-        'content-type' : `application/x-www-form-urlencoded`,
-        'Connection' : `keep-alive`,
-        'Accept-Encoding' : `gzip,compress,br,deflate`,
-        'Referer' : `https://servicewechat.com/wxa5bf5ee667d91626/121/page-frame.html`,
-        'Host' : `api.m.jd.com`,
-        'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.2(0x1800022c) NetType/4G Language/zh_CN`
-    };
-    const body = `body=%7B%7D&appid=swat_miniprogram&client=tjj_m&screen=1920*1080&osVersion=5.0.0&networkType=wifi&sdkName=orderDetail&sdkVersion=1.0.0&clientVersion=3.1.3&area=11`;
+    //const headers = {
+    //    'Cookie' : $nobyda.read("CookieWX"),
+    //    'content-type' : `application/x-www-form-urlencoded`,
+    //    'Connection' : `keep-alive`,
+    //    'Accept-Encoding' : `gzip,compress,br,deflate`,
+    //    'Referer' : `https://servicewechat.com/wxa5bf5ee667d91626/121/page-frame.html`,
+    //    'Host' : `api.m.jd.com`,
+    //    'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.2(0x1800022c) NetType/4G Language/zh_CN`
+    //};
 
     const myRequest = {
-        url: url,
-        method: method,
-        headers: headers,
-        body: body
+        url: `https://api.m.jd.com/api?functionId=swat_game_exchangejingbean&fromType=wxapp&timestamp=${date.getTime()}`,
+        headers: {
+            Cookie: $nobyda.read("CookieWX"),
+        },
+        body: `body=%7B%7D&appid=swat_miniprogram&client=tjj_m&screen=1920*1080&osVersion=5.0.0&networkType=wifi&sdkName=orderDetail&sdkVersion=1.0.0&clientVersion=3.1.3&area=11`
     };
 
     $nobyda.post(myRequest, function(error, response, data) {
+        console.log("response")
+        console.log(response)
+        console.log("data")
+        console.log(data)
+        console.log("error")
+        console.log(error)
         if (!error) {
             if (data.code == 0) {
                 $nobyda.notify("微信运动兑换京豆成功！🎉", "", "")
@@ -54,13 +56,13 @@ function Checkin() {
 function GetCookie() {
     var CK = $request.headers['Cookie']
     var RA = $nobyda.read("CookieWX")
-    //if (RA != CK) {
+    if (RA != CK) {
         $nobyda.write(CK, "CookieWX")
         $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
         $nobyda.notify(CK, "", "")
-    //} else {
-    //    console.log("\n跳过写入Cookie")
-    //}
+    } else {
+        console.log("\n跳过写入Cookie")
+    }
 }
 
 function nobyda() {
