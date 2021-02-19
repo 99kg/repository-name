@@ -1,27 +1,33 @@
 const $nobyda = nobyda();
 
 if ($nobyda.isRequest) {
-  GetCookie()
+    GetCookie()
 } else {
-  Checkin()
+    Checkin()
 }
 
 function Checkin() {
     var date = new Date()
-    //const headers = {
-    //    'Cookie' : $nobyda.read("CookieWX"),
-    //    'content-type' : `application/x-www-form-urlencoded`,
-    //    'Connection' : `keep-alive`,
-    //    'Accept-Encoding' : `gzip,compress,br,deflate`,
-    //    'Referer' : `https://servicewechat.com/wxa5bf5ee667d91626/121/page-frame.html`,
-    //    'Host' : `api.m.jd.com`,
-    //    'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.2(0x1800022c) NetType/4G Language/zh_CN`
-    //};
+    const headers = {
+        'Cookie' : $nobyda.read("CookieWX"),
+        'content-type' : `application/x-www-form-urlencoded`,
+        'Connection' : `keep-alive`,
+        'Accept-Encoding' : `gzip,compress,br,deflate`,
+        'Referer' : `https://servicewechat.com/wxa5bf5ee667d91626/121/page-frame.html`,
+        'Host' : `api.m.jd.com`,
+        'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.2(0x1800022c) NetType/4G Language/zh_CN`
+    };
 
     const myRequest = {
         url: `https://api.m.jd.com/api?functionId=swat_game_exchangejingbean&fromType=wxapp&timestamp=${date.getTime()}`,
         headers: {
             Cookie: $nobyda.read("CookieWX"),
+            content-type: `application/x-www-form-urlencoded`,
+            Connection: `keep-alive`,
+            Accept-Encoding: `gzip,compress,br,deflate`,
+            Referer: `https://servicewechat.com/wxa5bf5ee667d91626/121/page-frame.html`,
+            Host: `api.m.jd.com`,
+            User-Agent: `Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.2(0x1800022c) NetType/4G Language/zh_CN`
         },
         body: `body=%7B%7D&appid=swat_miniprogram&client=tjj_m&screen=1920*1080&osVersion=5.0.0&networkType=wifi&sdkName=orderDetail&sdkVersion=1.0.0&clientVersion=3.1.3&area=11`
     };
