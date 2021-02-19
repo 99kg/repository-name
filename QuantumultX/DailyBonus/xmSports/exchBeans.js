@@ -26,14 +26,11 @@ function Checkin() {
 
     $nobyda.post(myRequest, function(error, response, data) {
         if (!error) {
-            var msg = data.msg
-            console.log(msg)
-            var code = data.code
-            console.log(code)
-            if (data.code == 0) {
-                $nobyda.notify(`微信运动兑换京豆成功🎉`, "", "")
+            const json = JSON.parse(data)
+            if (json.code == 0) {
+                $nobyda.notify(`微信运动兑换京豆成功🎉\n${json.msg}`, "", "")
             } else {
-                $nobyda.notify(`微信运动兑换京豆失败!${msg}`, "", "")
+                $nobyda.notify(`微信运动兑换京豆失败!\n${json.msg}`, "", "")
             }
         } else {
             $nobyda.notify("微信运动兑换京豆接口请求失败!", "", error)
