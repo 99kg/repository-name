@@ -1,26 +1,22 @@
 var $nobyda = nobyda();
+var cookie = $nobyda.read("CookieWX")
 
-(async () => {
-    cookie = $nobyda.read("CookieWX")
-    if ($nobyda.isRequest) {
-        GetCookie()
-    } else if (cookie) {
-        await Checkin();
-    } else {
-        $nobyda.notify("", "", "签到终止, 未获取Cookie");
-    }
-})().finally(() => {
-    $nobyda.done();
-})
+if ($nobyda.isRequest) {
+    GetCookie()
+} else if (cookie) {
+    await Checkin();
+} else {
+    $nobyda.notify("", "", "签到终止, 未获取Cookie");
+}
 
 function Checkin() {
     var date = new Date()
     const url = `https://api.m.jd.com/api?functionId=swat_game_exchangejingbean&fromType=wxapp&timestamp=${date.getTime()}`;
     const method = `POST`;
-    console.log(666)
-    console.log($nobyda.read("CookieWX"))
+    console.log("cookie")
+    console.log(cookie)
     const headers = {
-        'Cookie' : $nobyda.read("CookieWX"),
+        'Cookie' : cookie,
         'content-type' : `application/x-www-form-urlencoded`,
         'Connection' : `keep-alive`,
         'Accept-Encoding' : `gzip,compress,br,deflate`,
@@ -53,19 +49,13 @@ function Checkin() {
 
 function GetCookie() {
     var CK = $request.headers['Cookie']
-    var EXBEAN = CK || null
     var RA = $nobyda.read("CookieWX")
-    if (EXBEAN) {
-        console.log(123)
-        console.log(CK)
-        console.log(EXBEAN[0])
-        console.log(EXBEAN[1])
-        if (RA != EXBEAN[1]) {
-            $nobyda.write(EXBEAN[1], "CookieWX")
-            $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
-        }
+    if (RA != CK) {
+        $nobyda.write(CK, "CookieWX")
+        $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
+        $nobyda.notify(CK, "", "")
     } else {
-        console.log("\n请求不含Cookie, 跳过写入 ‼️")
+        console.log("\n跳过写入Cookie")
     }
 }
 
