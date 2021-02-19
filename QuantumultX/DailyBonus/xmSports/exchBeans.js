@@ -20,33 +20,19 @@ function Checkin() {
 
     const myRequest = {
         url: `https://api.m.jd.com/api?functionId=swat_game_exchangejingbean&fromType=wxapp&timestamp=${date.getTime()}`,
-        headers: {
-            Cookie: $nobyda.read("CookieWX"),
-            content-type: `application/x-www-form-urlencoded`,
-            Connection: `keep-alive`,
-            Accept-Encoding: `gzip,compress,br,deflate`,
-            Referer: `https://servicewechat.com/wxa5bf5ee667d91626/121/page-frame.html`,
-            Host: `api.m.jd.com`,
-            User-Agent: `Mozilla/5.0 (iPhone; CPU iPhone OS 14_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.2(0x1800022c) NetType/4G Language/zh_CN`
-        },
+        headers: headers,
         body: `body=%7B%7D&appid=swat_miniprogram&client=tjj_m&screen=1920*1080&osVersion=5.0.0&networkType=wifi&sdkName=orderDetail&sdkVersion=1.0.0&clientVersion=3.1.3&area=11`
     };
 
     $nobyda.post(myRequest, function(error, response, data) {
-        console.log("response")
-        console.log(response)
-        console.log("data")
-        console.log(data)
-        console.log("error")
-        console.log(error)
         if (!error) {
             if (data.code == 0) {
-                $nobyda.notify("微信运动兑换京豆成功！🎉", "", "")
+                $nobyda.notify("微信运动兑换京豆成功！🎉", data.msg, "")
             } else {
-                $nobyda.notify("微信运动兑换京豆失败！🎉", "", "")
+                $nobyda.notify("微信运动兑换京豆失败！🎉", data.msg, "")
             }
         } else {
-            $nobyda.notify("签到接口请求失败", "", error)
+            $nobyda.notify("微信运动兑换京豆接口请求失败！", "", error)
         }
         $nobyda.end()
     });
@@ -60,7 +46,7 @@ function GetCookie() {
         $nobyda.notify(`微信运动兑换京豆Cookie写入成功 🎉`, "", "")
         $nobyda.notify(CK, "", "")
     } else {
-        console.log("\n跳过写入Cookie")
+        console.log("跳过写入Cookie")
     }
 }
 
