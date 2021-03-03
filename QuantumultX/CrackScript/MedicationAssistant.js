@@ -13,7 +13,7 @@ re('"expertUser":\\w+@"expert":\\w+', '"expertUser":true@"expert":true')
 re('"professional":\\w+@"expertStatus":\\d', '"professional":true@"expertStatus":1')
 re('"taskEndTime":\\w+@"isProActive":\\w+', '"taskEndTime":1999999999@"isProActive":true')
 re('"expireDate":\\w+@"memberDiscount":\\w+', '"expireDate":1999999999@"memberDiscount":true')
-re('"purchase":\\w+@"message":\\w+IAP', '"purchase":true@"message":null')
+re('"purchase":\\w+@"message":\\w+', '"purchase":true@"message":null')
 re('"error":\\w+@"memberDiscount":\\w+', '"expertUser":null@"memberDiscount":true')
 re('"isActive":\\w+', '"isActive":true')
 
