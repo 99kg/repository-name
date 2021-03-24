@@ -1,4 +1,4 @@
-Personal Only.
+Personal Only
 
 ⚠️免责声明：
 
