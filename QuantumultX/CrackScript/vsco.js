@@ -5,7 +5,7 @@ obj = {
   "subscriber": {
     "entitlements": {
       "membership": {
-        "expires_date": "2099-02-18T07:52:54Z",
+        "expires_date": "2098-02-18T07:52:54Z",
         "product_identifier": "com.circles.fin.premium.yearly",
         "purchase_date": "2020-02-11T07:52:54Z"
       }
@@ -21,7 +21,7 @@ obj = {
     "subscriptions": {
       "com.circles.fin.premium.yearly": {
         "billing_issues_detected_at": null,
-        "expires_date": "2099-02-18T07:52:54Z",
+        "expires_date": "2098-02-18T07:52:54Z",
         "is_sandbox": false,
         "original_purchase_date": "2020-02-11T07:52:55Z",
         "period_type": "normal",
