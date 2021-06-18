@@ -159,7 +159,7 @@ function getHyperParams() {
         Connection: 'keep-alive',
         Cookie: $.cookie,
         'User-Agent':
-          'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN',
+          'jdapp;iPhone;10.0.2;14.6;25213879e388ed4fbc89627615aa6a31b55d6ad5;network/wifi;JDEbook/openapp.jdreader;model/iPhone13,4;addressid/2588444441;appBuild/167694;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
         'Accept-Language': 'zh-cn',
         Referer: 'https://ihelp.jd.com/',
         'Accept-Encoding': 'gzip, deflate, br',
@@ -467,7 +467,7 @@ function taskUrl(functionid, body) {
       Connection: 'keep-alive',
       Referer: 'https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu',
       'User-Agent':
-        'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN',
+        'jdapp;iPhone;10.0.2;14.6;25213879e388ed4fbc89627615aa6a31b55d6ad5;network/wifi;JDEbook/openapp.jdreader;model/iPhone13,4;addressid/2588444441;appBuild/167694;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
       Cookie: $.cookie,
     },
     body: body ? `body=${JSON.stringify(body)}` : undefined,
@@ -504,7 +504,7 @@ function totalBean() {
         Cookie: $.cookie,
         Referer: 'https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2',
         'User-Agent':
-          'Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 MicroMessenger/8.0.5(0x18000528) NetType/WIFI Language/zh_CN',
+          'jdapp;iPhone;10.0.2;14.6;25213879e388ed4fbc89627615aa6a31b55d6ad5;network/wifi;JDEbook/openapp.jdreader;model/iPhone13,4;addressid/2588444441;appBuild/167694;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1',
       },
     };
     $.post(options, (err, resp, data) => {
