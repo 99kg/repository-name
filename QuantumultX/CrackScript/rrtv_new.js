@@ -19,6 +19,9 @@ if (url.indexOf('/get_combined_drama_detail') != -1) {
 		}
 		body = JSON.stringify(obj);
 	}
+	if (obj.hasOwnProperty("moviePlayInfo")) {
+		body.data.moviePlayInfo.m3u8.currentQuality = "AI_OD";
+	}
 }
 
 $done({ body });
