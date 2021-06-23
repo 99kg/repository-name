@@ -22,6 +22,11 @@ if (url.indexOf('/get_combined_drama_detail') != -1) {
 		obj.data.moviePlayInfo.m3u8.currentQuality = "AI_OD";
 		obj.data.moviePlayInfo.m3u8.exteAds = false;
 	}
+	if ("episodeList" in obj.data) {
+		for(var num = 0; num < obj.data.episodeList.episodeList.length; num++) {
+			obj.data.qualityConfig.episodeList.episodeList[num].frrMode = "free";
+		}
+	}
 	body = JSON.stringify(obj);
 }
 
