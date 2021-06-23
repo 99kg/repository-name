@@ -20,11 +20,13 @@ if (url.indexOf('/get_combined_drama_detail') != -1) {
 	}
 	if ("moviePlayInfo" in obj.data) {
 		obj.data.moviePlayInfo.m3u8.currentQuality = "AI_OD";
-		obj.data.moviePlayInfo.m3u8.exteAds = false;
+	}
+	if ("watchOnTrial" in obj.data) {
+		obj.data.watchOnTrial.currentQuality = "AI_OD";
 	}
 	if ("episodeList" in obj.data) {
 		for(var num = 0; num < obj.data.episodeList.episodeList.length; num++) {
-			obj.data.episodeList.episodeList[num].frrMode = "free";
+			obj.data.qualityConfig.episodeList.episodeList[num].frrMode = "free";
 		}
 	}
 	body = JSON.stringify(obj);
