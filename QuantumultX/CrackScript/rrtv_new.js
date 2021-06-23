@@ -24,9 +24,9 @@ if (url.indexOf('/get_combined_drama_detail') != -1) {
 	if ("watchOnTrial" in obj.data) {
 		obj.data.watchOnTrial.currentQuality = "AI_OD";
 	}
-	if ("episodeList" in obj.data) {
-		for(var num = 0; num < obj.data.episodeList.episodeList.length; num++) {
-			obj.data.qualityConfig.episodeList.episodeList[num].frrMode = "free";
+	if ("episodeList" in obj.data.dramaDetail) {
+		for(var num = 0; num < obj.data.dramaDetail.episodeList.episodeList.length; num++) {
+			obj.data.dramaDetail.episodeList.episodeList[num].frrMode = "free";
 		}
 	}
 	body = JSON.stringify(obj);
