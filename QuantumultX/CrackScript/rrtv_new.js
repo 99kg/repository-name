@@ -24,7 +24,7 @@ if (url.indexOf('/get_combined_drama_detail') != -1) {
 	}
 	if ("episodeList" in obj.data) {
 		for(var num = 0; num < obj.data.episodeList.episodeList.length; num++) {
-			obj.data.qualityConfig.episodeList.episodeList[num].frrMode = "free";
+			obj.data.episodeList.episodeList[num].frrMode = "free";
 		}
 	}
 	body = JSON.stringify(obj);
