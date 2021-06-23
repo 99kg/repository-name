@@ -16,6 +16,7 @@ if (url.indexOf('/get_combined_drama_detail') != -1) {
 	if ("qualityConfig" in obj.data) {
 		for(var num = 0; num < obj.data.qualityConfig.sortedItems.length; num++) {
 			obj.data.qualityConfig.sortedItems[num].canPlay = true;
+			obj.data.qualityConfig.sortedItems[num].canShowVip = false;
 		}
 	}
 	if ("moviePlayInfo" in obj.data) {
@@ -27,6 +28,7 @@ if (url.indexOf('/get_combined_drama_detail') != -1) {
 	if ("episodeList" in obj.data.dramaDetail) {
 		for(var num = 0; num < obj.data.dramaDetail.episodeList.episodeList.length; num++) {
 			obj.data.dramaDetail.episodeList.episodeList[num].frrMode = "free";
+			obj.data.dramaDetail.episodeList.episodeList[num].feeMode = "free";
 		}
 	}
 	body = JSON.stringify(obj);
