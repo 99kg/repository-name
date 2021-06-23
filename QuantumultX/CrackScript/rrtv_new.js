@@ -13,14 +13,15 @@ if (url.indexOf('/user/privilege/list') != -1) {
 }
 if (url.indexOf('/get_combined_drama_detail') != -1) {
 	var obj = JSON.parse(body);
-	if (obj.hasOwnProperty("qualityConfig")) {
+	if ("qualityConfig" in obj.data) {
 		for(var num = 0; num < obj.data.qualityConfig.sortedItems.length; num++) {
 			body.data.qualityConfig.sortedItems[num].canPlay = true;
 		}
 		body = JSON.stringify(obj);
 	}
-	if (obj.hasOwnProperty("moviePlayInfo")) {
+	if ("moviePlayInfo" in obj.data) {
 		body.data.moviePlayInfo.m3u8.currentQuality = "AI_OD";
+		body.data.moviePlayInfo.m3u8.exteAds = false;
 	}
 }
 
