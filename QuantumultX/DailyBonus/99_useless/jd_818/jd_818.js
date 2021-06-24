@@ -48,7 +48,6 @@ const activeEndTime = '2020/11/13 01:00:00';
 const helpCode = [
   'c1df7440-e9f0-4ab1-8469-6cd35226e7d5',
   'f7d11917-11c2-4974-a1da-5f2a9c9d97ee',
-  'c1df7440-e9f0-4ab1-8469-6cd35226e7d5',
   'f7d11917-11c2-4974-a1da-5f2a9c9d97ee'
 ]
 !(async () => {
