@@ -58,7 +58,7 @@ if ($.isNode()) {
     );
     return;
   }
-  for (let i = 0; i < cookiesArr.length; i++) {
+  for (let i = cookiesArr.length - 1; i >= 0 ; i--) {
     if (cookiesArr[i]) {
       $.cookie = cookiesArr[i];
       $.UserName = decodeURIComponent(
