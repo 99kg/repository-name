@@ -9,10 +9,10 @@ obj = {
 				"isTrialPeriod" : false,
 				"endTime" : 4086063790000,
 				"productId" : "yearly_premium",
-				"productType" : 3,
+				"productType" : 2,
 				"startTime" : 1624612621000,
 				"orderStatus" : 1,
-				"autoRenewStatus" : true,
+				"autoRenewStatus" : false,
 				"originalOrderId" : "600000729643467",
 				"sign" : "3edbc2ac1a76bf188a97da9123450aba"
 			}
