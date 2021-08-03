@@ -179,14 +179,14 @@ function totalBean() {
         const options = {
             "url": `https://wq.jd.com/user/info/QueryJDUserInfo?sceneval=2`,
             "headers": {
-                "Accept": "application/json,text/plain, */*",
+                "Accept": "application/json",
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Accept-Encoding": "gzip, deflate, br",
                 "Accept-Language": "zh-cn",
                 "Connection": "keep-alive",
                 "Cookie": $.cookie,
                 "Referer": "https://wqs.jd.com/my/jingdou/my.shtml?sceneval=2",
-                "User-Agent": "jdapp;iPhone;9.4.4;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"
+                "User-Agent": "jdapp;iPhone;10.0.10;14.7.1;25213879e388ed4fbc89627615aa6a31b55d6ad5;network/wifi;JDEbook/openapp.jdreader;model/iPhone13,4;addressid/2588444441;appBuild/167764;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"
             },
             "timeout": 10000,
         }
@@ -233,7 +233,7 @@ function taskurl(functionid, body) {
             'Origin': 'https://msitepp-fm.jd.com',
             'Connection': 'keep-alive',
             'Referer': 'https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu',
-            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+            "User-Agent": "jdapp;iPhone;10.0.10;14.7.1;25213879e388ed4fbc89627615aa6a31b55d6ad5;network/wifi;JDEbook/openapp.jdreader;model/iPhone13,4;addressid/2588444441;appBuild/167764;jdSupportDarkMode/0;Mozilla/5.0 (iPhone; CPU iPhone OS 14_7_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1",
             "Cookie": $.cookie
         },
         "body": body ? `body=${encodeURIComponent(JSON.stringify(body))}` : undefined
@@ -810,4 +810,153 @@ function Env(name, opts) {
             }
         }
     })(name, opts)
+}/api?appid=siteppM&functionId=${functionid}&forcebot=${$.HyperParam.forcebot}&t=${new Date().getTime()}`
+    return {
+        "url": urlStr,
+        "headers": {
+            'Host': 'api.m.jd.com',
+            'Accept': '*/*',
+            'Accept-Language': 'zh-cn',
+            'Accept-Encoding': 'gzip, deflate, br',
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Origin': 'https://msitepp-fm.jd.com',
+            'Connection': 'keep-alive',
+            'Referer': 'https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu',
+            "User-Agent": "Mozilla/5.0 (iPhone; CPU iPhone OS 14_0_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.0 Mobile/15E148 Safari/604.1",
+            "Cookie": $.cookie
+        },
+        "body": body ? `body=${encodeURIComponent(JSON.stringify(body))}` : undefined
+    }
 }
+
+async function showMsg() {
+    const message = `X东账号${$.index} ${$.nickName || $.UserName}\n🎉 本次价格保护金额：${$.refundtotalamount}💰`
+    console.log(message)
+    if ($.refundtotalamount) {
+        $.msg($.name, ``, message, {
+            "open-url": "https://msitepp-fm.jd.com/rest/priceprophone/priceProPhoneMenu"
+        });
+        await $.notify.sendNotify($.name, message)
+    }
+}
+
+// 来自 @chavyleung 大佬
+// https://raw.githubusercontent.com/chavyleung/scripts/master/Env.js
+function Env(name, opts) {
+    class Http {
+        constructor(env) {
+            this.env = env
+        }
+
+        send(opts, method = 'GET') {
+            opts = typeof opts === 'string' ? {
+                url: opts
+            } : opts
+            let sender = this.get
+            if (method === 'POST') {
+                sender = this.post
+            }
+            return new Promise((resolve, reject) => {
+                sender.call(this, opts, (err, resp, body) => {
+                    if (err) reject(err)
+                    else resolve(resp)
+                })
+            })
+        }
+
+        get(opts) {
+            return this.send.call(this.env, opts)
+        }
+
+        post(opts) {
+            return this.send.call(this.env, opts, 'POST')
+        }
+    }
+
+    return new (class {
+        constructor(name, opts) {
+            this.name = name
+            this.http = new Http(this)
+            this.data = null
+            this.dataFile = 'box.dat'
+            this.logs = []
+            this.isMute = false
+            this.isNeedRewrite = false
+            this.logSeparator = '\n'
+            this.startTime = new Date().getTime()
+            Object.assign(this, opts)
+            this.log('', `🔔${this.name}, 开始!`)
+        }
+
+        isNode() {
+            return 'undefined' !== typeof module && !!module.exports
+        }
+
+        isQuanX() {
+            return 'undefined' !== typeof $task
+        }
+
+        isSurge() {
+            return 'undefined' !== typeof $httpClient && 'undefined' === typeof $loon
+        }
+
+        isLoon() {
+            return 'undefined' !== typeof $loon
+        }
+
+        toObj(str, defaultValue = null) {
+            try {
+                return JSON.parse(str)
+            } catch {
+                return defaultValue
+            }
+        }
+
+        toStr(obj, defaultValue = null) {
+            try {
+                return JSON.stringify(obj)
+            } catch {
+                return defaultValue
+            }
+        }
+
+        getjson(key, defaultValue) {
+            let json = defaultValue
+            const val = this.getdata(key)
+            if (val) {
+                try {
+                    json = JSON.parse(this.getdata(key))
+                } catch { }
+            }
+            return json
+        }
+
+        setjson(val, key) {
+            try {
+                return this.setdata(JSON.stringify(val), key)
+            } catch {
+                return false
+            }
+        }
+
+        getScript(url) {
+            return new Promise((resolve) => {
+                this.get({
+                    url
+                }, (err, resp, body) => resolve(body))
+            })
+        }
+
+        runScript(script, runOpts) {
+            return new Promise((resolve) => {
+                let httpapi = this.getdata('@chavy_boxjs_userCfgs.httpapi')
+                httpapi = httpapi ? httpapi.replace(/\n/g, '').trim() : httpapi
+                let httpapi_timeout = this.getdata('@chavy_boxjs_userCfgs.httpapi_timeout')
+                httpapi_timeout = httpapi_timeout ? httpapi_timeout * 1 : 20
+                httpapi_timeout = runOpts && runOpts.timeout ? runOpts.timeout : httpapi_timeout
+                const [key, addr] = httpapi.split('@')
+                const opts = {
+                    url: `http://${addr}/v1/scripting/evaluate`,
+                    body: {
+                        script_text: script,
+                        mock_
