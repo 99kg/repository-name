@@ -1,5 +1,9 @@
 const $ = new API("hzh", true);
 const ERR = MYERR();
+$.write("", "evil_hzhBody");
+$.write("", "evil_hzhfp");
+$.notify("华住会", "", "清除Cookie成功🎉");
+
 $.body = $.read("evil_hzhBody");
 $.fp = $.read("evil_hzhfp");
 $.prizeid = [];
