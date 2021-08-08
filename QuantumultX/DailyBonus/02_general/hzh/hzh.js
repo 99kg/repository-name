@@ -312,18 +312,9 @@ function MYERR() {
 }
 
 function getCookie() {
-  if (
-    $request &&
-    $request.body != undefined
-  ) {
-    const body = $request.body;
-    $.log(body);
-    $.write(body, "evil_hzhBody");
-    const fp = $request.headers["fp"];
-    $.log(fp);
-    $.write(fp, "evil_hzhfp");
-    $.notify("华住会", "", "获取签到Cookie成功🎉");
-  }
+    $.write(null, "evil_hzhBody");
+    $.write(null, "evil_hzhfp");
+    $.notify("华住会", "", "清除Cookie成功🎉");
 }
 
 /**
