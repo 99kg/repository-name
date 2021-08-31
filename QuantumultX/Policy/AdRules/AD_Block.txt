@@ -8353,7 +8353,6 @@ DOMAIN-SUFFIX,www.googleadservices.com,REJECT
 DOMAIN-SUFFIX,www.google-analytics.com,REJECT
 DOMAIN-SUFFIX,fusion.qq.com,REJECT
 DOMAIN-SUFFIX,ios.bugly.qq.com,REJECT
-DOMAIN-SUFFIX,wup.imtt.qq.com,REJECT
 DOMAIN-SUFFIX,tns.simba.taobao.com,REJECT
 DOMAIN-SUFFIX,click.mz.simba.taobao.com,REJECT
 DOMAIN-SUFFIX,click.simba.taobao.com,REJECT
@@ -40027,7 +40026,6 @@ DOMAIN,uniplayad.com,REJECT
 DOMAIN,uniqodo.com,REJECT
 DOMAIN,ads.unister-gmbh.de,REJECT
 DOMAIN,unitethecows.com,REJECT
-DOMAIN,cdp.cloud.unity3d.com,REJECT
 DOMAIN,data-optout-service.uca.cloud.unity3d.com,REJECT
 DOMAIN,thind-gke-euw.prd.data.corp.unity3d.com,REJECT
 DOMAIN,unityads.unitychina.cn,REJECT
