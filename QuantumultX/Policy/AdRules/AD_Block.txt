@@ -1,7 +1,7 @@
 # https://raw.githubusercontent.com/NobyDa/ND-AD/master/QuantumultX/AD_Block.txt
 
 # Current total domain name : 43,000+ 
-# Update time : 2021.1.30
+# Update time : 2021.2.27
 
 # AdRule
 DOMAIN-SUFFIX,mcupdate.gstarcad.com,REJECT
@@ -1034,6 +1034,7 @@ DOMAIN-SUFFIX,adimg.deviantart.net,REJECT
 DOMAIN-SUFFIX,adimg.mobile.sina.cn,REJECT
 DOMAIN-SUFFIX,adimg.qxlsjw.com,REJECT
 DOMAIN-SUFFIX,adimg.uimserv.net,REJECT
+DOMAIN-SUFFIX,adimg.uve.weibo.com,REJECT
 DOMAIN-SUFFIX,adimg1.chosun.com,REJECT
 DOMAIN-SUFFIX,adimg3.search.naver.net,REJECT
 DOMAIN-SUFFIX,adimgs.xici.net,REJECT
@@ -1470,6 +1471,7 @@ DOMAIN-SUFFIX,appgift.sinaapp.com,REJECT
 DOMAIN-SUFFIX,appjiagu.com,REJECT
 DOMAIN-SUFFIX,applifier.com,REJECT
 DOMAIN-SUFFIX,applog.uc.cn,REJECT
+DOMAIN-SUFFIX,app-monitor.ele.me,REJECT
 DOMAIN-SUFFIX,appnext.com,REJECT
 DOMAIN-SUFFIX,appodealx.com,REJECT
 DOMAIN-SUFFIX,apppic.yingyongbei.com,REJECT
@@ -5383,6 +5385,7 @@ DOMAIN-SUFFIX,news-log.51y5.net,REJECT
 DOMAIN-SUFFIX,newspage.xilu.com,REJECT
 DOMAIN-SUFFIX,newspush.sinajs.cn,REJECT
 DOMAIN-SUFFIX,newswifiapi.dfshurufa.com,REJECT
+DOMAIN-SUFFIX,newton-api.ele.me,REJECT
 DOMAIN-SUFFIX,nexage.com,REJECT
 DOMAIN-SUFFIX,nexstep.zdworks.com,REJECT
 DOMAIN-SUFFIX,nextcps.com,REJECT
@@ -6365,7 +6368,6 @@ DOMAIN-SUFFIX,searchignited.com,REJECT
 DOMAIN-SUFFIX,searchswapper.com,REJECT
 DOMAIN-SUFFIX,seavideo-ak.espn.go.com,REJECT
 DOMAIN-SUFFIX,sebar.thand.info,REJECT
-DOMAIN-SUFFIX,sec.resource.xiaomi.net,REJECT
 DOMAIN-SUFFIX,secpay.wostore.cn,REJECT
 DOMAIN-SUFFIX,secretmedia.s3.amazonaws.com,REJECT
 DOMAIN-SUFFIX,secure.dsp.com,REJECT
@@ -8694,7 +8696,6 @@ DOMAIN-SUFFIX,afpssp.alimama.com,REJECT
 DOMAIN-SUFFIX,afptrack.alimama.com,REJECT
 DOMAIN-SUFFIX,alimama.alicdn.com,REJECT
 DOMAIN-SUFFIX,alipaylog.com,REJECT
-DOMAIN-SUFFIX,amdc.alipay.com,REJECT
 DOMAIN-SUFFIX,appdownload.alicdn.com,REJECT
 DOMAIN-SUFFIX,banner.alimama.com,REJECT
 DOMAIN-SUFFIX,c.alimama.com,REJECT
