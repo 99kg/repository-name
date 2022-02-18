@@ -7,7 +7,7 @@ hostname = api4.bybutter.com,
 */
 
 if ($request.url.indexOf("/v4/users/me") != -1) {
-re('memberships":\\[\\]', 'memberships":[{"endAt":1950842277,"id":"1","name":"普通会员","ownership":"temporary","startAt":1587425677,"usageType":"unlimited"}]')
+re('memberships":\\[\\]', 'memberships":[{"endAt":1999942277,"id":"1","name":"普通会员","ownership":"temporary","startAt":1587425677,"usageType":"unlimited"}]')
 }
 
 if ($request.url.indexOf("/v4/shop/") != -1) {
