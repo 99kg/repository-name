@@ -21732,7 +21732,6 @@ DOMAIN,bdnfszdqwaduv.com,REJECT
 DOMAIN,bdozkocgkljj.com,REJECT
 DOMAIN,bdp.cn,REJECT
 DOMAIN,sofire.bdstatic.com,REJECT
-DOMAIN,dig.bdurl.net,REJECT
 DOMAIN,bdyhvguiq.com,REJECT
 DOMAIN,pic.bdyxzx.com,REJECT
 DOMAIN,be-funk.com,REJECT
