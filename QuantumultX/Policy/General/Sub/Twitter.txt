@@ -1,0 +1,9 @@
+# > Twitter
+host-suffix, pscp.tv, Global
+host-suffix, periscope.tv, Global
+host-suffix, t.co, Global
+host-suffix, twimg.co, Global
+host-suffix, twimg.com, Global
+host-suffix, twitpic.com, Global
+host-suffix, vine.co, Global
+host-keyword, twitter, Global
