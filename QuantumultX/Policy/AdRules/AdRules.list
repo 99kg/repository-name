@@ -302,11 +302,6 @@ host, tunion-api.m.taobao.com, reject
 ip-cidr, 112.29.211.120/32, reject
 ip-cidr, 203.119.206.64/32, reject
 ip-cidr, 203.119.211.219/32, reject
-# > Apple
-host-suffix, ads.internal.unity3d.com, reject
-host-suffix, ads.prd.ie.internal.unity3d.com, reject
-host-suffix, iadsdk.apple.com, reject
-host-suffix, unityads.unity3d.com, reject
 # > AutoHome
 host, adproxy.autohome.com.cn, reject
 host, al.autohome.com.cn, reject
