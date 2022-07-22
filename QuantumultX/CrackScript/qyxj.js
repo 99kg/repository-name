@@ -13,5 +13,6 @@ body.data.start_time = 1584674770;
 body.data.end_time = 4077660370;
 body.data.is_cancel_subscribe = false;
 body.data.flag = true;
+body.data.subscribe_type = "auto";
 
 $done({body: JSON.stringify(body)});
