@@ -109,7 +109,8 @@ if ($request.url.indexOf(path4) != -1){
 }
 
 if ($request.url.indexOf(path5) != -1){
-	body.response = "{\"vip_flag\":true}"
+	body.sign = "GKudh9soGAkP/EbMxjy+H/8r6Ri+D/Q/ioBsmPF9xjicIUMWOYsgbHtGuHdVDdffit9fIateI7vPaBWLHVDidA2A9MIcUN5H0P2kP1b5kzrVvrqqrbJwiA0Wx8Jjb8Dfd06j5PaoQS/OJvdWBqSxHjx3kU894b3IN96oVlV9euI=";
+	body.response = "{\"vip_flag\":true}";
 	body.data.vip_flag = true;
 }
 
