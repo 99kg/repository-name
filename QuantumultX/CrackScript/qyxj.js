@@ -13,5 +13,18 @@ body.data.start_time = 1584674770;
 body.data.end_time = 4077660370;
 body.data.is_cancel_subscribe = false;
 body.data.flag = true;
+body.data.subscribe_type = "auto";
+body.data.cycle_unit = "12";
+
+if(body.response){
+     var tmp = JSON.parse(body.response);
+     tmp.start_time = 1584674770;
+     tmp.end_time = 4077660370;
+     tmp.is_cancel_subscribe = false;
+     tmp.subscribe_type = "auto";
+     tmp.flag = true;
+     tmp.cycle_unit = "12";
+     body.response =  JSON.stringify(tmp);  
+}
 
 $done({body: JSON.stringify(body)});
