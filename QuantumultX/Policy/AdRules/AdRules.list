@@ -260,7 +260,6 @@ host-suffix, zu08e.cn, reject
 host, abema-adx.ameba.jp, reject
 host, ad-channel.woyeahgo.tk, reject
 host, ad-cn.jovcloud.com, reject
-host, ad.12306.cn, reject
 host, ad.360in.com, reject
 host, ad.51wnl-cq.com, reject
 host, ad.caiyunapp.com, reject
