@@ -1,4 +1,12 @@
 # Update > 2022/08/01
+DOMAIN-SUFFIX,wx1.sinaimg.com,REJECT
+DOMAIN-SUFFIX,wx2.sinaimg.com,REJECT
+DOMAIN-SUFFIX,wx3.sinaimg.com,REJECT
+DOMAIN-SUFFIX,wx4.sinaimg.com,REJECT
+DOMAIN-SUFFIX,tvax1.sinaimg.com,REJECT
+DOMAIN-SUFFIX,tvax2.sinaimg.com,REJECT
+DOMAIN-SUFFIX,tvax3.sinaimg.com,REJECT
+DOMAIN-SUFFIX,tvax4.sinaimg.com,REJECT
 DOMAIN-SUFFIX,api-access.pangolin-sdk-toutiao-b.com,REJECT
 DOMAIN-SUFFIX,apoll.m.taobao.com,REJECT
 DOMAIN-SUFFIX,comet.yahoo.com,REJECT
