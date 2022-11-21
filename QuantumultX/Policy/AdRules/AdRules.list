@@ -1,4 +1,5 @@
 # Update > 2022/08/01
+# host＞host-suffix＞host-keyword＞ip类＞geoip＞final
 DOMAIN-SUFFIX,wx1.sinaimg.com,REJECT
 DOMAIN-SUFFIX,wx2.sinaimg.com,REJECT
 DOMAIN-SUFFIX,wx3.sinaimg.com,REJECT
