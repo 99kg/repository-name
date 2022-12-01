@@ -6,14 +6,14 @@
 * @WechatID          墨鱼手记
 * @UpdateTime        20220411
 * @ScriptFunction    书香门第自动获取金币
-* @ScriptURL         https://github.com/ddgksf2013/Scripts/raw/main/shuxiangmendi.js
+* @ScriptURL         https://raw.githubusercontent.com/99kg/repository-name/master/QuantumultX/Cuttlefish/Script/shuxiangmendi.js
 * ==/UserScript==
 
 [rewrite_local]
-https?:\/\/www\.txtnovel\.top\/plugin\.php\?id=dsu_paulsign:sign&operation=qiandao&infloat=0&inajax=0&mobile=yes url script-request-body https://github.com/ddgksf2013/Scripts/raw/main/shuxiangmendi.js
+https?:\/\/www\.txtnovel\.top\/plugin\.php\?id=dsu_paulsign:sign&operation=qiandao&infloat=0&inajax=0&mobile=yes url script-request-body https://raw.githubusercontent.com/99kg/repository-name/master/QuantumultX/Cuttlefish/Script/shuxiangmendi.js
 
 [task_local]
-0 9 * * * https://github.com/ddgksf2013/Scripts/raw/main/shuxiangmendi.js, tag=书香门第
+0 9 * * * https://raw.githubusercontent.com/99kg/repository-name/master/QuantumultX/Cuttlefish/Script/shuxiangmendi.js, tag=书香门第
 
 [mimt]
 hostname = www.txtnovel.top
