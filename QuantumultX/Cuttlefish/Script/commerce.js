@@ -14,7 +14,7 @@
 [rewrite_local]
   
 # ～ 醒图&Ulike&轻颜相机&vaporcam（四合一）解鎖會員權限（2022-05-09）@ddgksf2013
-https://(commerce-.*api|pay).(faceu|wecut).(com|mobi)/(commerce|apple)/(iosAppVerifyReceipt.php|v1/subscription/user_info) url script-response-body https://ocd0522.tk/ddgksf2013/Cuttlefish/raw/branch/master/Crack/commerce.js
+https://(commerce-.*api|pay).(faceu|wecut).(com|mobi)/(commerce|apple)/(iosAppVerifyReceipt.php|v1/subscription/user_info) url script-response-body https://raw.githubusercontent.com/99kg/repository-name/master/QuantumultX/Cuttlefish/Script/commerce.js
 
 [mitm] 
 hostname=commerce-i18n-api.faceu.mobi,commerce-api.faceu.mobi, pay.wecut.com

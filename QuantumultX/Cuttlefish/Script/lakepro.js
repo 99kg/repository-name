@@ -13,7 +13,7 @@
 
 [rewrite_local]
 # ～ Lake解鎖會員權限（2022-04-20）@ddgksf2013
-https?:\/\/revenuecat\.lakecoloring\.com\/v\d\/(receipts|subscribers) url script-echo-response https://ocd0522.tk/ddgksf2013/Cuttlefish/raw/branch/master/Crack/lakepro.js
+https?:\/\/revenuecat\.lakecoloring\.com\/v\d\/(receipts|subscribers) url script-echo-response https://raw.githubusercontent.com/99kg/repository-name/master/QuantumultX/Cuttlefish/Script/lakepro.js
 
 [mitm] 
 hostname=revenuecat.lakecoloring.com

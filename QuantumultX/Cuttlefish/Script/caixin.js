@@ -19,7 +19,7 @@
 [rewrite_local]
 
 # ～ 财新（2022-10-17）@ddgksf2013
-^https?:\/\/gateway\.caixin\.com\/api\/app\-api\/auth\/(validate|validateAudioAuth) url script-request-header https://ocd0522.tk/ddgksf2013/Cuttlefish/raw/branch/master/Crack/caixin.js
+^https?:\/\/gateway\.caixin\.com\/api\/app\-api\/auth\/(validate|validateAudioAuth) url script-request-header https://raw.githubusercontent.com/99kg/repository-name/master/QuantumultX/Cuttlefish/Script/caixin.js
 
 [mitm]
 

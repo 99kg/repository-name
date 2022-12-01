@@ -12,7 +12,7 @@
 [rewrite_local]
 
 # ～ 掌上公交微信小程序去除广告（2022-03-01）@ddgksf2013
-https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do url script-response-body https://ocd0522.tk/ddgksf2013/Cuttlefish/raw/branch/master/Crack/zhangshanggongjiao.js
+https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do url script-response-body https://raw.githubusercontent.com/99kg/repository-name/master/QuantumultX/Cuttlefish/Script/zhangshanggongjiao.js
 
 [mitm]
 
