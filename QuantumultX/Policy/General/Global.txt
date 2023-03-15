@@ -536,3 +536,4 @@ host-suffix, x-art.com, Global
 host-suffix, yimg.com, Global
 host, api.steampowered.com, Global
 host, store.steampowered.com, Global
+host, chat.openapi.com, Global
