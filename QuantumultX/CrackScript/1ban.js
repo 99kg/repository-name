@@ -55,8 +55,8 @@ obj = {
     {
       "quantity" : "1",
       "purchase_date_ms" : "1679550322000",
-      "expires_date" : "2023-04-23 05:45:22 Etc/GMT",
-      "expires_date_pst" : "2023-04-22 22:45:22 America/Los_Angeles",
+      "expires_date" : "2099-12-31 05:45:22 Etc/GMT",
+      "expires_date_pst" : "2099-12-31 22:45:22 America/Los_Angeles",
       "is_in_intro_offer_period" : "false",
       "transaction_id" : "600001177984291",
       "is_trial_period" : "false",
@@ -68,7 +68,7 @@ obj = {
       "subscription_group_identifier" : "20938702",
       "original_purchase_date_ms" : "1679550326000",
       "web_order_line_item_id" : "600000528103032",
-      "expires_date_ms" : "1682228722000",
+      "expires_date_ms" : "4102379122000",
       "purchase_date_pst" : "2023-03-22 22:45:22 America/Los_Angeles",
       "original_purchase_date" : "2023-03-23 05:45:26 Etc/GMT"
     }
