@@ -1,5 +1,5 @@
 var obj = JSON.parse($response.body);
-obj = {
+obj = 
   {
     "environment": "Production",
     "receipt": {
@@ -68,7 +68,6 @@ obj = {
     "auto_renew_status": "0"
     }],
     "status": 0
-  }
-};
+  };
 
 $done({body: JSON.stringify(obj)});
