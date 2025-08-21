@@ -8,9 +8,11 @@ const requrl = $request.url
 if ($request && $request.method != 'OPTIONS') {
   const signurlVal = requrl
   const signheaderVal = JSON.stringify($request.headers)
+  const signbodyVal = JSON.stringify($request.body)
   if (signurlVal) senku2.setdata(signurlVal, signurlKey2)
   if (signheaderVal) senku2.setdata(signheaderVal, signheaderKey2)
     senku2.msg(cookieName2, `获取Cookie: 成功`, ``)
+  if (signbodyVal) senku2.setdata(signbodyVal, signbodyKey2)
 }
 
 function init() {
