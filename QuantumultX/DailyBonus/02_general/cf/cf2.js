@@ -17,6 +17,10 @@ const myRequest = {
     body: signbodyVal2
 };
 
+console.log(signheaderVal2);
+console.log("\n\n\n\n");
+console.log(signbodyVal2);
+
 $task.fetch(myRequest).then(response => {
     const obj = JSON.parse(response.body);
     console.log(response.statusCode + "\n\n" + obj.msg);
