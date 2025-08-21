@@ -5,30 +5,26 @@ const signbodyKey2 = 'senku2_signbody_cf2'
 const senku2 = init()
 const signurlVal2 = senku2.getdata(signurlKey2)
 const signheaderVal2 = senku2.getdata(signheaderKey2)
+const signbodyVal2 = senku2.getdata(signbodyKey2)
 
-sign()
+const url = `https://mwegame.qq.com/yoyo/cf/firevalsignin`;
+const method = `POST`;
 
-function sign() {
-    const url = { url: signurlVal2, headers: JSON.parse(signheaderVal2) }
+const myRequest = {
+    url: url,
+    method: method,
+    headers: signheaderVal2,
+    body: signbodyVal2
+};
 
-    senku2.get(url, (error, response, data) => {
-        const result = JSON.parse(data)
-        let subTitle = ``
-        let detail = ``
-        if (result.msg == "签到成功") {
-            subTitle = `签到结果: 签到成功！`
-            detail = result.data.exp
-        } else if (result.msg == "已签到") {
-            subTitle = `签到结果: 您已签到！`
-            detail = result.data.exp
-        } else {
-            subTitle = `签到结果: 签到失败！`
-            detail = result.msg
-        }
-        senku2.msg(cookieName2, subTitle, detail)
-        senku2.done()
-    })
-}
+$task.fetch(myRequest).then(response => {
+    const obj = JSON.parse(response.body);
+    console.log(response.statusCode + "\n\n" + obj.msg);
+    $done();
+}, reason => {
+    console.log(reason.error);
+    $done();
+});
 
 function init() {
     isSurge = () => {
