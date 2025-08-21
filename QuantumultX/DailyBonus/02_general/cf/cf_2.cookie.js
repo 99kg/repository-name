@@ -13,6 +13,7 @@ if ($request && $request.method != 'OPTIONS') {
   if (signheaderVal) senku2.setdata(signheaderVal, signheaderKey2)
     senku2.msg(cookieName2, `获取Cookie: 成功`, ``)
   if (signbodyVal) senku2.setdata(signbodyVal, signbodyKey2)
+    senku2.msg(cookieName2, `获取body: 成功`, signbodyVal)
 }
 
 function init() {
