@@ -12,12 +12,14 @@ if ($request && $request.method != 'OPTIONS') {
   if (signheaderVal) senku2.setdata(signheaderVal, signheaderKey2)
 
   const signbodyVal = $request.body
+  console.log('Body type:', typeof signbodyVal)
   console.log('Body value:', signbodyVal) // 确认是否获取到body
-  if (signbodyVal) {
-    senku2.setdata(signbodyVal, signbodyKey2)
-    senku2.msg(cookieName2, `获取body: 成功`, signbodyVal)
+  if (signbodyVal !== undefined && signbodyVal !== null) {
+    // 确保 body 被正确存储为字符串
+    senku2.setdata(signbodyVal.toString(), signbodyKey2)
+    senku2.msg(cookieName2, `获取body: 成功`, signbodyVal.toString())
   } else {
-    senku2.msg(cookieName2, `获取body: 失败`, 'body为空')
+    senku2.msg(cookieName2, `获取body: 失败`, 'body为空或未定义')
   }
 }
 
