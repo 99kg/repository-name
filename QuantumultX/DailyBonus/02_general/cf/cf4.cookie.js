@@ -14,14 +14,22 @@ if ($request && $request.method != 'OPTIONS') {
   const signbodyVal = $request.body
   console.log('Body type:', typeof signbodyVal)
   console.log('Body value:', signbodyVal) // 确认是否获取到body
-  if (signbodyVal !== undefined && signbodyVal !== null) {
-    // 确保 body 被正确存储为字符串
-    senku2.setdata(signbodyVal.toString(), signbodyKey2)
-    senku2.msg(cookieName2, `获取body: 成功`, signbodyVal.toString())
+  // 处理二进制数据（Quantumult X 兼容）
+  let bodyString = '';
+  if (typeof signbodyVal === 'string') {
+    bodyString = signbodyVal;
+  } else if (signbodyVal instanceof ArrayBuffer) {
+    bodyString = String.fromCharCode.apply(null, new Uint8Array(signbodyVal));
   } else {
-    senku2.msg(cookieName2, `获取body: 失败`, 'body为空或未定义')
+    senku2.msg(cookieName2, `Body类型错误`, `类型: ${typeof signbodyVal}`);
+    senku2.done();
+    return;
   }
 }
+
+// 存储处理后的字符串
+senku2.setdata(bodyString, signbodyKey2);
+senku2.msg(cookieName2, `Body存储成功`, `长度: ${bodyString.length}`);
 
 function init() {
   isSurge = () => {
