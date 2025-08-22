@@ -11,20 +11,32 @@ if ($request && $request.method != 'OPTIONS') {
   if (signurlVal) senku2.setdata(signurlVal, signurlKey2)
   if (signheaderVal) senku2.setdata(signheaderVal, signheaderKey2)
 
-  const signbodyVal = $request.body
-  console.log('Body type:', typeof signbodyVal)
-  console.log('Body value:', signbodyVal) // 确认是否获取到body
-  // 处理二进制数据（Quantumult X 兼容）
+  const signbodyVal = $request.body;
+  console.log('Body type:', typeof signbodyVal);
+  senku2.msg(typeof signbodyVal, 'typeof signbodyVal', '');
+  console.log('Raw Body:', signbodyVal);
+
+  if (!signbodyVal) {
+    console.log('Request body is undefined or empty');
+    senku2.msg(cookieName2, '请求体为空', '无法捕获请求体');
+    senku2.done();
+    return;
+  }
+
   let bodyString = '';
   if (typeof signbodyVal === 'string') {
     bodyString = signbodyVal;
   } else if (signbodyVal instanceof ArrayBuffer) {
     bodyString = String.fromCharCode.apply(null, new Uint8Array(signbodyVal));
   } else {
+    console.log('Body type is not supported:', typeof signbodyVal);
     senku2.msg(cookieName2, `Body类型错误`, `类型: ${typeof signbodyVal}`);
     senku2.done();
     return;
   }
+
+  senku2.setdata(bodyString, signbodyKey2);
+  senku2.msg(cookieName2, `Body存储成功`, `长度: ${bodyString.length}`);
 }
 
 // 存储处理后的字符串
