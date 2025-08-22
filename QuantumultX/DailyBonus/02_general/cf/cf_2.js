@@ -17,13 +17,14 @@ const myRequest = {
     body: signbodyVal2
 };
 
-console.log(signheaderVal2);
-console.log("\n\n\n\n");
-console.log(signbodyVal2);
+console.log('Stored body value:', signbodyVal2)
+if (!signbodyVal2) {
+  console.log('Body data not found in storage')
+}
 
 $task.fetch(myRequest).then(response => {
     const obj = JSON.parse(response.body);
-    console.log(response.statusCode + "\n\n" + obj.msg);
+    console.log(response.statusCode + "\n\n" + obj.returnMsg);
     $done();
 }, reason => {
     console.log(reason.error);
