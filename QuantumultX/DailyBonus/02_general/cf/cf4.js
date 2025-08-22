@@ -17,7 +17,9 @@ const myRequest = {
     body: signbodyVal2
 };
 
-console.log('Stored body value:', signbodyVal2)
+console.log(`Body 原始类型 -> ${typeof signbodyVal}`);
+console.log(`Body 值 -> ${JSON.stringify(signbodyVal)}`);
+
 if (!signbodyVal2) {
   console.log('Body data not found in storage')
 }
