@@ -5,26 +5,39 @@ const signbodyKey2 = 'senku2_signbody_cf2'
 const senku2 = init()
 const signurlVal2 = senku2.getdata(signurlKey2)
 const signheaderVal2 = senku2.getdata(signheaderKey2)
-const signbodyVal2 = senku2.getdata(signbodyKey2)
+
+try {
+    const signbodyVal2 = senku2.getdata(signbodyKey2)
+    if (signbodyVal2) {
+        senku2.log(`${signbodyVal2}, 获取签到信息成功, 开始执行签到任务`)
+    } else {
+        senku2.setdata("cGameId=1001&gameId=10011&subGameId=10011&userId=449812009&areaId=84&serverId=322&roleId=2132208760&token=MMdsYqBM&uin=948279346&uniqueRoleId=2132208760&appOpenid=C122042288BE7A123419B75C637F70B9&cCurrentGameId=10011&cRand=1755829683697&tghappid=1000045&sig=KhQJmO/a+Mx/nCDsMRUJRd88Y3Q=", signbodyKey2);
+        senku2.log(`${signbodyVal2}, 获取签到信息失败,手动body赋值, 开始执行签到任务`)
+    }
+} catch (e) {
+    senku2.setdata("cGameId=1001&gameId=10011&subGameId=10011&userId=449812009&areaId=84&serverId=322&roleId=2132208760&token=MMdsYqBM&uin=948279346&uniqueRoleId=2132208760&appOpenid=C122042288BE7A123419B75C637F70B9&cCurrentGameId=10011&cRand=1755829683697&tghappid=1000045&sig=KhQJmO/a+Mx/nCDsMRUJRd88Y3Q=", signbodyKey2);
+    senku2.log(`${cookieName2}, 错误信息: ${e}`)
+    senku2.log(`${signbodyVal2}, 获取签到信息失败,手动body赋值, 开始执行签到任务`)
+}
 
 sign()
 
 function sign() {
-  const url = { url: signurlVal2, headers: JSON.parse(signheaderVal2), body: signBodyVal2 }
-  senku.post(url, (error, response, data) => {
-    senku.log(`${cookieName2}, data: ${data}`)
-    const res = JSON.parse(data)
-    let subTitle = ``
-    let detail = ``
-    if (res.status == 1) {
-      subTitle = `签到结果: 成功`
-    } else {
-      subTitle = `签到结果: 失败`
-      detail = `状态: ${res.message}`
-    }
-    senku.msg(cookieName2, subTitle, detail)
-    senku.done()
-  })
+    const url = { url: signurlVal2, headers: JSON.parse(signheaderVal2), body: signbodyVal2 }
+    senku2.post(url, (error, response, data) => {
+        senku2.log(`${cookieName2}, data: ${data}`)
+        const res = JSON.parse(data)
+        let subTitle = ``
+        let detail = ``
+        if (res.status == 1) {
+            subTitle = `签到结果: 成功`
+        } else {
+            subTitle = `签到结果: 失败`
+            detail = `状态: ${res.message}`
+        }
+        senku2.msg(cookieName2, subTitle, detail)
+        senku2.done()
+    })
 }
 
 function init() {
