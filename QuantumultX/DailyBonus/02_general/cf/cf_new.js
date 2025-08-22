@@ -7,31 +7,25 @@ const signurlVal2 = senku2.getdata(signurlKey2)
 const signheaderVal2 = senku2.getdata(signheaderKey2)
 const signbodyVal2 = senku2.getdata(signbodyKey2)
 
-const url = `https://mwegame.qq.com/yoyo/cf/firevalsignin`;
-const method = `POST`;
+sign()
 
-const myRequest = {
-    url: url,
-    method: method,
-    headers: signheaderVal2,
-    body: signbodyVal2
-};
-
-console.log(`Body 原始类型 -> ${typeof signbodyVal}`);
-console.log(`Body 值 -> ${JSON.stringify(signbodyVal)}`);
-
-if (!signbodyVal2) {
-  console.log('Body data not found in storage')
+function sign() {
+  const url = { url: signurlVal2, headers: JSON.parse(signheaderVal2), body: signBodyVal2 }
+  senku.post(url, (error, response, data) => {
+    senku.log(`${cookieName2}, data: ${data}`)
+    const res = JSON.parse(data)
+    let subTitle = ``
+    let detail = ``
+    if (res.status == 1) {
+      subTitle = `签到结果: 成功`
+    } else {
+      subTitle = `签到结果: 失败`
+      detail = `状态: ${res.message}`
+    }
+    senku.msg(cookieName2, subTitle, detail)
+    senku.done()
+  })
 }
-
-$task.fetch(myRequest).then(response => {
-    const obj = JSON.parse(response.body);
-    console.log(response.statusCode + "\n\n" + obj.returnMsg);
-    $done();
-}, reason => {
-    console.log(reason.error);
-    $done();
-});
 
 function init() {
     isSurge = () => {
