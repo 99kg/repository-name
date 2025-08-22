@@ -8,12 +8,17 @@ const requrl = $request.url
 if ($request && $request.method != 'OPTIONS') {
   const signurlVal = requrl
   const signheaderVal = JSON.stringify($request.headers)
-  const signbodyVal = $request.body
   if (signurlVal) senku2.setdata(signurlVal, signurlKey2)
   if (signheaderVal) senku2.setdata(signheaderVal, signheaderKey2)
-    senku2.msg(cookieName2, `获取Cookie: 成功`, ``)
-  if (signbodyVal) senku2.setdata(signbodyVal, signbodyKey2)
+
+  const signbodyVal = $request.body
+  console.log('Body value:', signbodyVal) // 确认是否获取到body
+  if (signbodyVal) {
+    senku2.setdata(signbodyVal, signbodyKey2)
     senku2.msg(cookieName2, `获取body: 成功`, signbodyVal)
+  } else {
+    senku2.msg(cookieName2, `获取body: 失败`, 'body为空')
+  }
 }
 
 function init() {
