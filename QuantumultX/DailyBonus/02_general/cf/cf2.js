@@ -5,10 +5,9 @@ const signbodyKey2 = 'senku2_signbody_cf2'
 const senku2 = init()
 const signurlVal2 = senku2.getdata(signurlKey2)
 const signheaderVal2 = senku2.getdata(signheaderKey2)
-let signbodyVal2;
+const signbodyVal2 = senku2.getdata(signbodyKey2)
 
 try {
-    const signbodyVal2 = senku2.getdata(signbodyKey2)
     if (signbodyVal2) {
         senku2.log(`${signbodyVal2}, 获取签到信息成功, 开始执行签到任务`)
     } else {
@@ -21,6 +20,7 @@ try {
     senku2.log(`${signbodyVal2}, 获取签到信息失败,手动body赋值, 开始执行签到任务`)
 }
 
+const signbodyVal2 = senku2.getdata(signbodyKey2)
 senku2.log(`最终 signbodyVal2 值: ${signbodyVal2}`);
 sign()
 
