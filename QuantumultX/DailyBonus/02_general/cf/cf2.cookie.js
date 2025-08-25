@@ -15,11 +15,8 @@ if ($request && $request.method != 'OPTIONS') {
   if (signbodyVal) senku2.setdata(signbodyVal, signbodyKey2)
 
   senku2.msg(cookieName2, `获取Cookie: 成功`, ``)
+  senku2.msg(cookieName2, `Body存储成功`,  ``)
 }
-
-// 存储处理后的字符串
-senku2.setdata(bodyString, signbodyKey2);
-senku2.msg(cookieName2, `Body存储成功`, `长度: ${bodyString.length}`);
 
 function init() {
   isSurge = () => {
