@@ -7,20 +7,25 @@ const signurlVal2 = senku2.getdata(signurlKey2)
 const signheaderVal2 = senku2.getdata(signheaderKey2)
 const signbodyVal2 = senku2.getdata(signbodyKey2)
 
-try {
-    if (signbodyVal2) {
-        senku2.log(`${signbodyVal2}, 获取签到信息成功, 开始执行签到任务`)
-    } else {
-        senku2.setdata("cGameId=1001&gameId=10011&subGameId=10011&userId=449812009&areaId=84&serverId=322&roleId=2132208760&token=MMdsYqBM&uin=948279346&uniqueRoleId=2132208760&appOpenid=C122042288BE7A123419B75C637F70B9&cCurrentGameId=10011&cRand=1755829683697&tghappid=1000045&sig=KhQJmO/a+Mx/nCDsMRUJRd88Y3Q=", signbodyKey2);
-        senku2.log(`${signbodyVal2}, 获取签到信息失败,手动body赋值, 开始执行签到任务`)
-    }
-} catch (e) {
-    senku2.setdata("cGameId=1001&gameId=10011&subGameId=10011&userId=449812009&areaId=84&serverId=322&roleId=2132208760&token=MMdsYqBM&uin=948279346&uniqueRoleId=2132208760&appOpenid=C122042288BE7A123419B75C637F70B9&cCurrentGameId=10011&cRand=1755829683697&tghappid=1000045&sig=KhQJmO/a+Mx/nCDsMRUJRd88Y3Q=", signbodyKey2);
-    senku2.log(`${cookieName2}, 错误信息: ${e}`)
-    senku2.log(`${signbodyVal2}, 获取签到信息失败,手动body赋值, 开始执行签到任务`)
-}
+if (signbodyVal2) {
+    senku2.log(`${signbodyVal2}, 获取签到信息成功, 开始执行签到任务`)
+} 
+// try {
+//     if (signbodyVal2) {
+//         senku2.log(`${signbodyVal2}, 获取签到信息成功, 开始执行签到任务`)
+//     } 
+//     else {
+//         senku2.setdata("cGameId=1001&gameId=10011&subGameId=10011&userId=449812009&areaId=84&serverId=322&roleId=2132208760&token=MMdsYqBM&uin=948279346&uniqueRoleId=2132208760&appOpenid=C122042288BE7A123419B75C637F70B9&cCurrentGameId=10011&cRand=1755829683697&tghappid=1000045&sig=KhQJmO/a+Mx/nCDsMRUJRd88Y3Q=", signbodyKey2);
+//         senku2.log(`${signbodyVal2}, 获取签到信息失败,手动body赋值, 开始执行签到任务`)
+//     }
+// } catch (e) {
+//     senku2.setdata("cGameId=1001&gameId=10011&subGameId=10011&userId=449812009&areaId=84&serverId=322&roleId=2132208760&token=MMdsYqBM&uin=948279346&uniqueRoleId=2132208760&appOpenid=C122042288BE7A123419B75C637F70B9&cCurrentGameId=10011&cRand=1755829683697&tghappid=1000045&sig=KhQJmO/a+Mx/nCDsMRUJRd88Y3Q=", signbodyKey2);
+//     senku2.log(`${cookieName2}, 错误信息: ${e}`)
+//     senku2.log(`${signbodyVal2}, 获取签到信息失败,手动body赋值, 开始执行签到任务`)
+// }
 
-const signbodyVal2 = senku2.getdata(signbodyKey2)
+// const signbodyVal2 = senku2.getdata(signbodyKey2)
+
 senku2.log(`最终 signbodyVal2 值: ${signbodyVal2}`);
 sign()
 
