@@ -36,7 +36,7 @@ function sign() {
         const res = JSON.parse(data)
         let subTitle = ``
         let detail = ``
-        if (res.status == 1) {
+        if (res.returnCode == 0) {
             subTitle = `签到结果: 成功`
         } else {
             subTitle = `签到结果: 失败`
