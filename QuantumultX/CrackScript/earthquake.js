@@ -7,7 +7,7 @@ obj= {
 		"productId": "earthquake_early_warning_10",
 		"productName": "",
 		"upgradePrice": 0,
-		"vipType":"SVIP"
+		"vipType":"svip"
 	}
 };
 $done({body: JSON.stringify(obj)});
