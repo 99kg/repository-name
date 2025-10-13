@@ -6,7 +6,8 @@ obj= {
 		"endTime": 4102415999000,
 		"productId": "earthquake_early_warning_10",
 		"productName": "",
-		"upgradePrice": 0
+		"upgradePrice": 0,
+		"vipType":"SVIP"
 	}
 };
 $done({body: JSON.stringify(obj)});
