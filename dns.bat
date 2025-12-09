@@ -1,3 +1,0 @@
-ipconfig /displaydns
-
-ipconfig /flushdns
