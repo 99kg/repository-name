@@ -13,7 +13,7 @@ obj = {
     },
     "management_url" : "https://apps.apple.com/account/subscriptions",
     "subscriptions" : {
-      "tr5_yearlysubsc_50dlrs_1" : {
+      "tr5_yearlysubsc_50dlrs_50_off" : {
         "original_purchase_date" : "2023-01-30T08:29:24Z",
         "expires_date" : "2099-12-31T08:29:22Z",
         "is_sandbox" : false,
@@ -32,7 +32,7 @@ obj = {
       "premium" : {
         "grace_period_expires_date" : null,
         "purchase_date" : "2023-01-30T08:29:22Z",
-        "product_identifier" : "tr5_yearlysubsc_50dlrs_1",
+        "product_identifier" : "tr5_yearlysubsc_50dlrs_50_off",
         "expires_date" : "2099-12-31T08:29:22Z"
       }
     },
