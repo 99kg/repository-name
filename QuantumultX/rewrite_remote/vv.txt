@@ -1,3 +1,0 @@
-trojan://21e2fdab221d092a170f6d4b1c8c17f8@45.126.126.189:45518?security=tls&sni=45.126.126.189.sslip.io&type=tcp&allowInsecure=0#HK - Hong Kong 1
-trojan://833d2e98816a991c030c7c0a000d1938@79.108.161.110:57969?security=tls&sni=79.108.161.110.sslip.io&type=tcp&allowInsecure=0#RO - Bucharest 1
-trojan://59b1b9046ea5748f69812bc207823779@193.168.173.123:48008?security=tls&sni=193.168.173.123.sslip.io&type=tcp&allowInsecure=0#NL - Amsterdam 
